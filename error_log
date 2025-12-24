@@ -1,0 +1,409 @@
+[23-Dec-2025 13:27:05 UTC] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'nmrmlatur_prod_jjm_zpjalna'@'localhost' to database 'nmrmlatur_prod_jjm_zpjalna' in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/con.php on line 2
+[23-Dec-2025 18:57:05 Asia/kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 8
+[23-Dec-2025 18:57:05 Asia/kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 9
+[23-Dec-2025 18:57:05 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php:8) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 45
+[23-Dec-2025 13:27:54 UTC] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'nmrmlatur_prod_jjm_zpjalna'@'localhost' to database 'nmrmlatur_prod_jjm_zpjalna' in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/con.php on line 2
+[23-Dec-2025 18:57:54 Asia/kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 8
+[23-Dec-2025 18:57:54 Asia/kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 9
+[23-Dec-2025 18:57:54 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php:8) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 45
+[23-Dec-2025 13:29:29 UTC] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'nmrmlatur_prod_jjm_zpjalna'@'localhost' to database 'nmrmlatur_prod_jjm_zpjalna' in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/con.php on line 2
+[23-Dec-2025 18:59:29 Asia/kolkata] PHP Notice:  session_start(): A session had already been started - ignoring in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php on line 2
+[23-Dec-2025 18:59:29 Asia/kolkata] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 11
+[23-Dec-2025 18:59:29 Asia/kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 12
+[23-Dec-2025 18:59:29 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/con.php:2) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 48
+[23-Dec-2025 19:00:04 Asia/kolkata] PHP Notice:  session_start(): A session had already been started - ignoring in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php on line 2
+[23-Dec-2025 19:00:04 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php:2) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 26
+[23-Dec-2025 19:06:20 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php:8) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 26
+[23-Dec-2025 19:08:10 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php:8) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 23
+[23-Dec-2025 19:09:20 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[23-Dec-2025 19:09:20 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[23-Dec-2025 19:09:20 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[23-Dec-2025 19:09:21 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[23-Dec-2025 19:09:21 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[23-Dec-2025 19:09:21 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[23-Dec-2025 13:40:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function toastMsg() in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login.php:128
+Stack trace:
+#0 {main}
+  thrown in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login.php on line 128
+[23-Dec-2025 19:10:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[23-Dec-2025 19:10:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[23-Dec-2025 19:10:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[23-Dec-2025 19:10:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[23-Dec-2025 19:10:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[23-Dec-2025 19:10:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[23-Dec-2025 13:41:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function toastMsg() in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login.php:128
+Stack trace:
+#0 {main}
+  thrown in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login.php on line 128
+[23-Dec-2025 19:11:06 Asia/kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function setSession() in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/login_db.php on line 42
+[24-Dec-2025 10:25:55 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:25:55 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:25:55 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:25:55 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:25:55 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:25:55 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 145
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 154
+[24-Dec-2025 10:29:02 Asia/kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/jafrabadMap.php on line 163
+[24-Dec-2025 10:29:05 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:29:05 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:29:05 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:30:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:36 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:30:37 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/agreementReport_sk.php on line 826
+[24-Dec-2025 10:42:07 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:42:07 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:42:07 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:42:08 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:42:08 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:42:08 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:42:52 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:42:52 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:42:52 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:42:53 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:42:53 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:42:53 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:48:58 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:48:58 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:48:58 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 10:49:00 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:49:00 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:49:00 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 10:49:00 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/yojanaStatusReportNew.php on line 346
+[24-Dec-2025 10:49:00 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/yojanaStatusReportNew.php on line 346
+[24-Dec-2025 10:49:00 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/yojanaStatusReportNew.php on line 346
+[24-Dec-2025 11:36:33 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 11:36:33 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 11:36:33 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/index.php on line 322
+[24-Dec-2025 11:36:34 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/yojanaStatusReportNew.php on line 346
+[24-Dec-2025 11:36:34 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/yojanaStatusReportNew.php on line 346
+[24-Dec-2025 11:36:34 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 11:36:34 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 11:36:34 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/heatMap.php on line 194
+[24-Dec-2025 11:36:34 Asia/kolkata] PHP Warning:  Division by zero in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/yojanaStatusReportNew.php on line 346
+[24-Dec-2025 11:36:57 Asia/kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function setSession() in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php on line 29
+[24-Dec-2025 11:56:40 Asia/kolkata] PHP Notice:  Undefined variable: email in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php on line 22
+[24-Dec-2025 11:56:40 Asia/kolkata] PHP Fatal error:  Uncaught Error: Call to undefined function setSession() in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php on line 32
+[24-Dec-2025 11:57:36 Asia/kolkata] PHP Notice:  session_start(): A session had already been started - ignoring in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php on line 2
+[24-Dec-2025 11:57:36 Asia/kolkata] PHP Notice:  Undefined variable: email in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php on line 22
+[24-Dec-2025 11:57:36 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php:2) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php on line 34
+[24-Dec-2025 11:58:49 Asia/kolkata] PHP Notice:  session_start(): A session had already been started - ignoring in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php on line 2
+[24-Dec-2025 11:58:49 Asia/kolkata] PHP Notice:  Undefined variable: email in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php on line 22
+[24-Dec-2025 11:58:49 Asia/kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/include/sweetAlert.php:2) in /home/nmrmlatur/dev.settribeitsolutions.com/Dev/JJM_Jalna/createUser_db.php on line 34

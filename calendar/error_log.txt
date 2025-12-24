@@ -1,0 +1,9 @@
+[12-Sep-2022 03:26:25 Asia/kolkata] PHP Notice:  Undefined variable: yojanaId in /home/u196817721/domains/settribe.com/public_html/developement/@developingWebsites/JalJeevanMissionCopy/calendar/index.php on line 84
+[12-Sep-2022 03:26:29 Asia/kolkata] PHP Notice:  Undefined variable: yojanaId in /home/u196817721/domains/settribe.com/public_html/developement/@developingWebsites/JalJeevanMissionCopy/calendar/index.php on line 84
+[12-Sep-2022 03:26:40 Asia/kolkata] PHP Notice:  Undefined variable: yojanaId in /home/u196817721/domains/settribe.com/public_html/developement/@developingWebsites/JalJeevanMissionCopy/calendar/index.php on line 84
+[12-Sep-2022 03:26:43 Asia/kolkata] PHP Notice:  Undefined variable: yojanaId in /home/u196817721/domains/settribe.com/public_html/developement/@developingWebsites/JalJeevanMissionCopy/calendar/index.php on line 84
+[12-Sep-2022 03:26:52 Asia/kolkata] PHP Notice:  Undefined variable: yojanaId in /home/u196817721/domains/settribe.com/public_html/developement/@developingWebsites/JalJeevanMissionCopy/calendar/index.php on line 84
+[12-Sep-2022 03:27:10 Asia/kolkata] PHP Notice:  Undefined variable: yojanaId in /home/u196817721/domains/settribe.com/public_html/developement/@developingWebsites/JalJeevanMissionCopy/calendar/index.php on line 84
+[14-Mar-2023 12:20:30 Asia/kolkata] PHP Notice:  Undefined variable: subWork in /home/u952673419/domains/zpjalna.co.in/public_html/jjm/calendar/index.php on line 131
+[14-Mar-2023 12:33:08 Asia/kolkata] PHP Notice:  Undefined variable: subWork in /home/u952673419/domains/zpjalna.co.in/public_html/jjm/calendar/index.php on line 131
+[04-May-2023 14:51:28 Asia/kolkata] PHP Notice:  Undefined variable: subWork in /home/u952673419/domains/zpjalna.co.in/public_html/jjm/calendar/index.php on line 131
