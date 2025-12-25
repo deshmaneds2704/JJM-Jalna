@@ -16,7 +16,7 @@ else {
     $mobile = false;
     $file = "target='_blank'";
 }
-require_once("include/con.php");
+require_once("include/_con.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

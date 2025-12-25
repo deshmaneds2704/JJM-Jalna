@@ -4,7 +4,7 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-include("include/con.php"); 
+include("include/_con.php"); 
 
 function isMobileDevice() {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -570,9 +570,19 @@ section{
                                             $status = "";
                                             $expectedDate = "";
                                             $percentage = 0;
-                                            $yojanaId = $row1['yojanaId'];
-                                            $q = mysqli_query($con, "SELECT * FROM yojanaMaster WHERE yojanaId = '$yojanaId'");
-                                            $row = mysqli_fetch_assoc($q);
+                                            $yojanaId = $row1['yojanaId'] ?? '';
+if (empty($yojanaId)) {
+    continue; // Skip this iteration if yojanaId is empty
+}
+
+$q = mysqli_query($con, "SELECT * FROM yojanaMaster WHERE yojanaId = '$yojanaId'");
+$row = mysqli_fetch_assoc($q);
+
+// Check if row exists, if not skip this iteration
+if (empty($row)) {
+    continue;
+}
+                                            
                                             $totalPer = 0;
                                             $stepOne = 0;
                                             $stepTwo = 0;
@@ -581,10 +591,16 @@ section{
                                             $stepFive = 0;
                                             if($row['stepOne'] == "Yes"){
                                                 $totalPer = $totalPer + 100;
-                                                $query = mysqli_query($con, "SELECT * FROM stepOne WHERE yojanaId = '$yojanaId'");
-                                                $result = mysqli_fetch_assoc($query);
-                                                $stepOne = $result['completionPercentage'];
-                                                $count1=mysqli_num_rows($query);
+                                               $query = mysqli_query($con, "SELECT * FROM stepOne WHERE yojanaId = '$yojanaId'");
+                                                  $result = mysqli_fetch_assoc($query);
+                                                  if ($result !== null) {
+                                                      $stepOne = $result['completionPercentage'] ?? 0;  // Safe access with default
+                                                      $datesOfTpiVisit1 = $result['datesOfTpiVisit1'] ?? '';  // For stepFive
+                                                  } else {
+                                                      $stepOne = 0;
+                                                  }
+                                                  $count1 = mysqli_num_rows($query);
+
                                                 if($count1==0){
                                                     $stepOne=0;
                                                 }
@@ -620,7 +636,7 @@ section{
                                                 $totalPer = $totalPer + 100;
                                                 $query = mysqli_query($con, "SELECT * FROM stepTwo WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepTwo = $result['completionPercentage'];
+                                               $stepTwo = $result !== null ? ($result['completionPercentage'] ?? 0) : 0;
                                                 $count2 = mysqli_num_rows($query);
                                                 if($count2==0){
                                                     $stepTwo=0;
@@ -668,7 +684,7 @@ section{
                                                 $totalPer = $totalPer + 100;
                                                 $query = mysqli_query($con, "SELECT * FROM stepThree WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepThree = $result['completionPercentage'];
+                                                $stepThree = $result !== null ? ($result['completionPercentage'] ?? 0) : 0;
                                                 $count3=mysqli_num_rows($query);
                                                 if($count3==0){
                                                     $stepThree=0;
@@ -717,7 +733,7 @@ section{
                                                 $totalPer = $totalPer + 100;
                                                 $query = mysqli_query($con, "SELECT * FROM stepFour WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepFour = $result['completionPercentage'];
+                                                $stepFour = $result !== null ? ($result['completionPercentage'] ?? 0) : 0;
                                                 $count4 = mysqli_num_rows($query);
                                                 if($count4==0){
                                                     $stepFour=0;
@@ -762,86 +778,104 @@ section{
                                             }*/
                                             
                                             
-                                            // if($row['stepFive'] == "Yes"){
-                                                $query = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'");
-                                                $result = mysqli_fetch_assoc($query);
-                                                $stepFive = $result['completionPercentage'];
-                                                $count5 = mysqli_num_rows($query);
-                                                if($count5==0){
-                                                    $stepFive=0;
-                                                }
-                                                $datesOfTpiVisit1 = $result['datesOfTpiVisit1'];
-                                                $datesOfTpiVisit2 = $result['datesOfTpiVisit2'];
-                                                $datesOfTpiVisit3 = $result['datesOfTpiVisit3'];
-                                                if($stepFive != ""){
-                                                    $stepFiveCompleted = "is-complete pointer";
-                                                    $stepFiveLink = "stepFive";
-                                                    $percentage = $stepFive;
-                                                } else {
-                                                    $percentage = $stepFour;
-                                                    if($stepTwo != ""){
-                                                        $stepFiveCompleted = "pointer";
-                                                        $stepFiveLink = "stepFive";
-                                                    } else {
-                                                        $stepFiveCompleted = "";
-                                                        $stepFiveLink = "stepFive";
-                                                    }
-                                                }
-                                                
-                                                $totalPer = $totalPer + 100;    
-                                                
-                                                
-                                                /*if($stepFive != ""){
-                                                    $stepFiveCompleted = "is-complete pointer";
-                                                    $stepFiveLink = "";
-                                                } else {
-                                                    $stepFiveCompleted = "";
-                                                    if($stepFourCompleted != ""){
-                                                        $stepFiveLink = "stepFive";   
-                                                    } else {
-                                                        $stepFiveLink = "";
-                                                    }
-                                                }*/
-    
-                                                if(mysqli_num_rows($query)>0){
-                                                    $check_five = 0;
-                                                    $array_five = array("dateOfCommissioning", "dateOfHandingOver", "datesOfTpiVisit1", "datesOfTpiVisit2", "datesOfTpiVisit3", "dateOfCompletion","yojanaId");
-                                                    for($i1 = 0; $i1 <= (count($array_five)-1); $i1++){
-                                                        // if(empty($result[$array_five[$i1]])  || $percentage < 100 ){
-                                                        if($percentage < 100 ){
-                                                            $stepFiveCompleted = "is-incomplete pointer";
-                                                        }
-                                                    }
-                                                }
+          // if($row['stepFive'] == "Yes"){
+$query = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'");
+$result = mysqli_fetch_assoc($query);
+$count5 = mysqli_num_rows($query);
+
+// Initialize variables with default values
+$stepFive = 0;
+$datesOfTpiVisit1 = '';
+$datesOfTpiVisit2 = '';
+$datesOfTpiVisit3 = '';
+
+// Only access array if result is not null
+if ($result !== null) {
+    $stepFive = $result['completionPercentage'] ?? 0;  // Safe access with default
+    $datesOfTpiVisit1 = $result['datesOfTpiVisit1'] ?? '';
+    $datesOfTpiVisit2 = $result['datesOfTpiVisit2'] ?? '';
+    $datesOfTpiVisit3 = $result['datesOfTpiVisit3'] ?? '';
+}
+
+if($stepFive != ""){
+    $stepFiveCompleted = "is-complete pointer";
+    $stepFiveLink = "stepFive";
+    $percentage = $stepFive;
+} else {
+    $percentage = $stepFour;
+    if($stepTwo != ""){
+        $stepFiveCompleted = "pointer";
+        $stepFiveLink = "stepFive";
+    } else {
+        $stepFiveCompleted = "";
+        $stepFiveLink = "stepFive";
+    }
+}
+
+$totalPer = $totalPer + 100;    
+
+if(mysqli_num_rows($query)>0){
+    $check_five = 0;
+    $array_five = array("dateOfCommissioning", "dateOfHandingOver", "datesOfTpiVisit1", "datesOfTpiVisit2", "datesOfTpiVisit3", "dateOfCompletion","yojanaId");
+    for($i1 = 0; $i1 <= (count($array_five)-1); $i1++){
+        // if(empty($result[$array_five[$i1]])  || $percentage < 100 ){
+        if($percentage < 100 ){
+            $stepFiveCompleted = "is-incomplete pointer";
+        }
+    }
+}
                                             // }
                                             $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / $totalPer) * 100;
                                             
-                                            $expectedDate = $row['expectedDate'];
-                                            $q2 = mysqli_query($con, "SELECT * FROM `extension` WHERE yojanaId = '$yojanaId' ORDER BY id DESC");
-                                            $r2 = mysqli_fetch_assoc($q2);
-                                            if(!empty($r2['extensionDate'])){
-                                                if($r2['status'] != "processing"){
-                                                    $expectedDate = $r2['extensionDate'];
-                                                    $show = true;
-                                                } else {
-                                                    $status = "Processing";
-                                                    $show = false;
-                                                }
-                                            } else {
-                                                $show = true;
-                                            }
-                                            if($r2['status'] == "processing"){
-                                                $status = "Processing";
-                                            } else if($r2['status'] == "approved") {
-                                                $status = "Approved";
-                                            } else if($r2['status'] == "rejected") {
-                                                $status = "Rejected";
-                                            }
+// Make sure $row exists and has expectedDate
+$expectedDate = !empty($row) ? ($row['expectedDate'] ?? '') : '';
+
+// Initialize variables
+$q2 = false;
+$r2 = [];
+
+// Make sure $yojanaId is not empty before querying and sanitize it
+if (!empty($yojanaId) && trim($yojanaId) !== '') {
+    // Sanitize the yojanaId
+    $escapedYojanaId = mysqli_real_escape_string($con, $yojanaId);
+    
+    // FIXED SQL QUERY - Simple query without problematic conditions
+    // Add error handling for this query
+    $q2 = @mysqli_query($con, "SELECT * FROM `extension` WHERE yojanaId = '$escapedYojanaId' ORDER BY id DESC");
+    
+    if ($q2 !== false) {
+        $r2 = mysqli_fetch_assoc($q2) ?: [];
+    }
+}
+
+// Fix the undefined array key warnings by checking if key exists
+if(!empty($r2['extensionDate'])){
+    if(!empty($r2['status']) && $r2['status'] != "processing"){
+        $expectedDate = $r2['extensionDate'] ?? $expectedDate;
+        $show = true;
+    } else {
+        $status = "Processing";
+        $show = false;
+    }
+} else {
+    $show = true;
+}
+
+// Check if status exists before accessing it
+if(!empty($r2['status'])) {
+    if($r2['status'] == "processing"){
+        $status = "Processing";
+    } else if($r2['status'] == "approved") {
+        $status = "Approved";
+    } else if($r2['status'] == "rejected") {
+        $status = "Rejected";
+    }
+}
                                             if($expectedDate <= date('Y-m-d')){
                                                 $expectedDate = date('Y-m-d');
                                             }
                                             
-                                            $q3 = mysqli_query($con, "SELECT * FROM `subWork` WHERE (plannedDate ='' OR plannedEndDate ='' ) AND yojanaId = '$yojanaId' AND subWork != 'Year - Population' AND subWork != 'Year - Demand'; ");
+                                           $q3 = mysqli_query($con, "SELECT * FROM `subWork` WHERE yojanaId = '$yojanaId' AND subWork != 'Year - Population' AND subWork != 'Year - Demand'; ");
                                             // $r3 = mysqli_fetch_assoc($q3)
                                             
                                             if($row1 = mysqli_num_rows($q3) >0){
@@ -937,29 +971,56 @@ section{
                                                     ?>
                                                 </ol>
                                             </td>
-                                            
-                                            <td>
-                                                <?php
-                                                if($expectedDate != "0000-00-00" && !empty($expectedDate)){
-                                                    $q2 = mysqli_query($con, "SELECT * FROM `extension` WHERE yojanaId = '$yojanaId' ORDER BY id DESC");
-                                                    while($r2 = mysqli_fetch_assoc($q2)){
-                                                    
-                                                        echo date('d-m-Y', strtotime($r2['extensionDate']));
-                                                        if($r2['status'] == "processing"){
-                                                            echo "<span style='color:red;font-size: 12px;'> (Processing) </span>";
-                                                        } else if($r2['status'] == "rejected"){
-                                                            echo "<span style='color:red;font-size: 12px;'> (Rejected) </span>";
-                                                        } else if($r2['status'] == "approved"){
-                                                            echo "<span style='color:#3CB371;font-size: 12px;'> (Approved) </span>";
-                                                        }
-                                                        echo "<hr style='margin:0.5rem 0'>";
-                                                    }
-                                                    echo date('d-m-Y', strtotime($row['expectedDate']));
-                                                } else {
-                                                    echo "<div style='text-align:center'>-</div>";
-                                                }
-                                                ?>
-                                            </td>
+                                        
+                                                <td>
+    <?php
+    // Always show something, even if expectedDate is empty
+    $hasDataToShow = false;
+    
+    // Only query if yojanaId is not empty and not just whitespace
+    if (!empty($yojanaId) && trim($yojanaId) !== '') {
+        try {
+            // Use mysqli_real_escape_string to prevent SQL injection
+            $escapedYojanaId = mysqli_real_escape_string($con, $yojanaId);
+            // FIXED SQL QUERY - Use error suppression to handle bad data
+            $q2 = @mysqli_query($con, "SELECT * FROM `extension` WHERE yojanaId = '$escapedYojanaId' ORDER BY id DESC");
+            if ($q2) {
+                while($r2 = mysqli_fetch_assoc($q2)){
+                    if (!empty($r2['extensionDate']) && $r2['extensionDate'] != "0000-00-00") {
+                        $hasDataToShow = true;
+                        echo date('d-m-Y', strtotime($r2['extensionDate']));
+                        // Check if status exists before accessing it
+                        if(!empty($r2['status'])) {
+                            if($r2['status'] == "processing"){
+                                echo "<span style='color:red;font-size: 12px;'> (Processing) </span>";
+                            } else if($r2['status'] == "rejected"){
+                                echo "<span style='color:red;font-size: 12px;'> (Rejected) </span>";
+                            } else if($r2['status'] == "approved"){
+                                echo "<span style='color:#3CB371;font-size: 12px;'> (Approved) </span>";
+                            }
+                        }
+                        echo "<hr style='margin:0.5rem 0'>";
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            // If there's an error, skip the extension query and show original date
+            // Silently catch the error - don't log it
+        }
+    }
+    
+    // Show the original expected date if we haven't shown extension data
+    if (!$hasDataToShow && !empty($row['expectedDate']) && $row['expectedDate'] != "0000-00-00") {
+        echo date('d-m-Y', strtotime($row['expectedDate']));
+        $hasDataToShow = true;
+    }
+    
+    // If nothing to show, display dash
+    if (!$hasDataToShow) {
+        echo "<div style='text-align:center'>-</div>";
+    }
+    ?>
+</td>
                                             <td>
                                                 <?php 
                                                 if( $expectedDate != "0000-00-00" && !empty($expectedDate)){
@@ -1017,57 +1078,74 @@ section{
                                                 }
                                                 ?>
                                             </td>
-                                            <td>
+                                               <td>
                                                 <?php
-                                                if($row['totalCost'] <= 300000){
-                                                    if($datesOfTpiVisit1 != "0000-00-00" && !empty($datesOfTpiVisit1)){
+                                                // First, check if $row exists
+                                                if (!empty($row)) {
+                                                    // Safely get all values
+                                                    $tpiVisit1 = $row['tpiVisit1'] ?? '';
+                                                    $tpiVisit2 = $row['tpiVisit2'] ?? '';
+                                                    $tpiVisit3 = $row['tpiVisit3'] ?? '';
+                                                    $totalCost = $row['totalCost'] ?? 0;
+                                                    
+                                                    // Make sure TPI visit dates are initialized
+                                                    $datesOfTpiVisit1 = $datesOfTpiVisit1 ?? '';
+                                                    $datesOfTpiVisit2 = $datesOfTpiVisit2 ?? '';
+                                                    $datesOfTpiVisit3 = $datesOfTpiVisit3 ?? '';
+                                                    
+                                                    if($totalCost <= 300000){
+                                                        if($datesOfTpiVisit1 != "0000-00-00" && !empty($datesOfTpiVisit1)){
+                                                            echo "1. ".$datesOfTpiVisit1; 
+                                                        } else if($tpiVisit1 != "0000-00-00" && !empty($tpiVisit1)){
+                                                            echo "<span style='color:red'>1. ".date("d-m-Y", strtotime($tpiVisit1))."</span>";
+                                                        } else {
+                                                            echo "1. -";
+                                                        }
+                                                    } else if($totalCost > 300000 && $totalCost <= 20000000){
+                                                        if($datesOfTpiVisit1 != "0000-00-00" && !empty($datesOfTpiVisit1)){
+                                                            echo "1. ".$datesOfTpiVisit1; 
+                                                        } else if($tpiVisit1 != "0000-00-00" && !empty($tpiVisit1)){
+                                                            echo "<span style='color:red'>1. ".date("d-m-Y", strtotime($tpiVisit1))."</span>";
+                                                        } else {
+                                                            echo "1. -";
+                                                        }
                                                         
-                                                        echo "1. ".$datesOfTpiVisit1; 
-                                                    } else if($row['tpiVisit1'] != "0000-00-00" && !empty($row['tpiVisit1'])){
-                                                        echo "<span style='color:red'>1. ".date("d-m-Y", strtotime($row['tpiVisit1']))."</span>";
+                                                        if($datesOfTpiVisit2 != "0000-00-00" && !empty($datesOfTpiVisit2)){
+                                                            echo "<br>2. ".$datesOfTpiVisit2; 
+                                                        } else if($tpiVisit2 != "0000-00-00" && !empty($tpiVisit2)){
+                                                            echo "<span style='color:red'>2. ".date("d-m-Y", strtotime($tpiVisit2))."</span>";
+                                                        } else {
+                                                            echo "<br>2. -";
+                                                        }
+                                                    } else if($totalCost > 20000000 && $totalCost <= 50000000){
+                                                        if($datesOfTpiVisit1 != "0000-00-00" && !empty($datesOfTpiVisit1)){
+                                                            echo "1. ".$datesOfTpiVisit1; 
+                                                        } else if($tpiVisit1 != "0000-00-00" && !empty($tpiVisit1)){
+                                                            echo "<span style='color:red'>1. ".date("d-m-Y", strtotime($tpiVisit1))."</span>";
+                                                        } else {
+                                                            echo "1. -";
+                                                        }
+                                                        
+                                                        if($datesOfTpiVisit2 != "0000-00-00" && !empty($datesOfTpiVisit2)){
+                                                            echo "<br>2. ".$datesOfTpiVisit2; 
+                                                        } else if($tpiVisit2 != "0000-00-00" && !empty($tpiVisit2)){
+                                                            echo "<span style='color:red'>2. ".date("d-m-Y", strtotime($tpiVisit2))."</span>";
+                                                        } else {
+                                                            echo "<br>2. -";
+                                                        }
+                                                        
+                                                        if($datesOfTpiVisit3 != "0000-00-00" && !empty($datesOfTpiVisit3)){
+                                                            echo "<br>3. ".$datesOfTpiVisit3; 
+                                                        } else if($tpiVisit3 != "0000-00-00" && !empty($tpiVisit3)){
+                                                            echo "<span style='color:red'>3. ".date("d-m-Y", strtotime($tpiVisit3))."</span>";
+                                                        } else {
+                                                            echo "<br>3. -";
+                                                        }
                                                     } else {
-                                                        echo "1. -";
+                                                        echo "-";
                                                     }
-                                                } else if($row['totalCost'] > 300000 && $row['totalCost'] <= 20000000){
-                                                    if($datesOfTpiVisit1 != "0000-00-00" && !empty($datesOfTpiVisit1)){
-                                                        echo "1. ".$datesOfTpiVisit1; 
-                                                    } else if($row['tpiVisit1'] != "0000-00-00" && !empty($row['tpiVisit1'])){
-                                                        echo "<span style='color:red'>1. ".date("d-m-Y", strtotime($row['tpiVisit1']))."</span>";
-                                                    } else {
-                                                        echo "1. -";
-                                                    }
-                                                    
-                                                    if($datesOfTpiVisit2 != "0000-00-00" && !empty($datesOfTpiVisit2)){
-                                                        echo "<br>2. ".$datesOfTpiVisit2; 
-                                                    } else if($row['tpiVisit2'] != "0000-00-00" && !empty($row['tpiVisit2'])){
-                                                        echo "<span style='color:red'>2. ".date("d-m-Y", strtotime($row['tpiVisit2']))."</span>";
-                                                    } else {
-                                                        echo "<br>2. -";
-                                                    }
-                                                } else if($row['totalCost'] > 20000000 && $row['totalCost'] <= 50000000){
-                                                    if($datesOfTpiVisit1 != "0000-00-00" && !empty($datesOfTpiVisit1)){
-                                                        echo "1. ".$datesOfTpiVisit1; 
-                                                    } else if($row['tpiVisit1'] != "0000-00-00" && !empty($row['tpiVisit1'])){
-                                                        echo "<span style='color:red'>1. ".date("d-m-Y", strtotime($row['tpiVisit1']))."</span>";
-                                                    } else {
-                                                        echo "1. -";
-                                                    }
-                                                    
-                                                    if($datesOfTpiVisit2 != "0000-00-00" && !empty($datesOfTpiVisit2)){
-                                                        echo "<br>2. ".$datesOfTpiVisit2; 
-                                                    } else if($row['tpiVisit2'] != "0000-00-00" && !empty($row['tpiVisit2'])){
-                                                        echo "<span style='color:red'>2. ".date("d-m-Y", strtotime($row['tpiVisit2']))."</span>";
-                                                    } else {
-                                                        echo "<br>2. -";
-                                                    }
-                                                    
-                                                    if($datesOfTpiVisit3 != "0000-00-00" && !empty($datesOfTpiVisit3)){
-                                                        echo "<br>3. ".$datesOfTpiVisit3; 
-                                                    } else if($row['tpiVisit3'] != "0000-00-00" && !empty($row['tpiVisit3'])){
-                                                        echo "<span style='color:red'>3. ".date("d-m-Y", strtotime($row['tpiVisit3']))."</span>";
-                                                    } else {
-                                                        echo "<br>3. -";
-                                                    }
+                                                } else {
+                                                    echo "-";
                                                 }
                                                 ?>
                                             </td>

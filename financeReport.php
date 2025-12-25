@@ -5,7 +5,7 @@ if(!isset($_SESSION['userId'])){
     die();
 }
 
-require_once('include/con.php');
+require_once('include/_con.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

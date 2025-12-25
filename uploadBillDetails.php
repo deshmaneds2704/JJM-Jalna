@@ -4,7 +4,7 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-require_once('include/con.php');
+require_once('include/_con.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -169,29 +169,37 @@ require_once('include/con.php');
                                     <form class="forms-sample" action="uploadBillDetails_db" method="POST" enctype="multipart/form-data">
                                         
                                         <?php 
-                                        if(isset($_GET['id'])){
-                                            $id = $_GET['id'];
-                                        ?> 
-                                        <?php
-                                        } else {
-                                            $id = 0;
-                                        }
-                                        $query = mysqli_query($con, "SELECT * FROM users WHERE id = '$id'");
-                                        $result = mysqli_fetch_assoc($query);
-                                        $userId = $result['userId'];
-                                        ?>
-                                        <input type="hidden" value="<?php echo $userId ?>" name="userId">
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $query = mysqli_query($con, "SELECT * FROM users WHERE id = '$id'");
+    $result = mysqli_fetch_assoc($query);
+    
+    // Check if result exists
+    if ($result) {
+        $userId = $result['userId'] ?? '';
+        $contractor = $result['contractor'] ?? '';
+    } else {
+        $userId = '';
+        $contractor = '';
+    }
+} else {
+    $id = 0;
+    $userId = '';
+    $contractor = '';
+    $result = []; // Initialize as empty array
+}
+?>
+                                        <input type="hidden" value="<?php echo htmlspecialchars($userId) ?>" name="userId">
                                         <!-- for Fullname -->
                                         <!-- -->
 
                                         <!-- for Mobile No. & Designation -->
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="fullName">Name of Agent <span class="star">*</span></label>
-                                                    <input type="text" class="form-control" required="" id="contractor" name="contractor" value="<?php echo $result['contractor'] ?>" placeholder="Name of Constructors" />
-                                                </div>
-                                            </div>
+                                        <div class="col-md-3">
+    <div class="form-group">
+        <label for="fullName">Name of Agent <span class="star">*</span></label>
+        <input type="text" class="form-control" required="" id="contractor" name="contractor" value="<?php echo htmlspecialchars($contractor) ?>" placeholder="Name of Constructors" />
+    </div>
+</div>
                                             
                                             <div class="col-md-3">
                                                 <div class="form-group">
