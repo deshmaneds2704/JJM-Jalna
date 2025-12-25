@@ -4,7 +4,7 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-require_once("include/con.php");
+require_once("include/_con.php");
 
 function isMobileDevice() {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -379,7 +379,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Trial Bore' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                           
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -420,7 +420,7 @@ else {
                                                         
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Percolation Well' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                            
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -462,7 +462,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Approach Bund' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                           
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -504,7 +504,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Switch Room' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                           
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -547,7 +547,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Pumping Machinery' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                           
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -589,7 +589,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Rising Main' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                            
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -631,7 +631,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'RCC ESR' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                               
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -673,7 +673,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Distribution System' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                            
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -715,7 +715,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'MSEDC Work' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                           
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -757,7 +757,7 @@ else {
                                                         $j = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Trial & Run'");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                               
                                                         ?>
                                                         <tr>
                                                             <td>

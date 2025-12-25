@@ -5,7 +5,7 @@ if(!isset($_SESSION['userId'])){
     exit;
     die();
 }
-require_once('include/con.php');
+require_once('include/_con.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -371,7 +371,7 @@ require_once('include/con.php');
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for=timeLimit"">Time Limit (Months)<span class="star">*</span></label>
-                                                    <input type="text" value="<?php echo $timeLimit ?>" required="" class="form-control" name="timeLimit" id="timeLimit">
+                                                    <input type="text" value="<?php echo $timeLimit ?? '' ?>" required="" class="form-control" name="timeLimit" id="timeLimit">
                                                 </div>
                                             </div>
                                             

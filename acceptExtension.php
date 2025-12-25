@@ -4,7 +4,7 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-include("include/con.php"); 
+include("include/_con.php"); 
 
 function isMobileDevice() {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -567,10 +567,11 @@ section{
                                             $percentage = 0;
                                             $yojanaId = $row['yojanaId'];
                                             
-                                            if($row['stepOne'] == "Yes"){
+                                          if (($row['stepOne'] ?? '') === "Yes") {
                                                 $query = mysqli_query($con, "SELECT * FROM stepOne WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepOne = $result['completionPercentage'];
+                                         $stepOne = $result['completionPercentage'] ?? 0; 
+
                                                 $count1=mysqli_num_rows($query);
                                                 if($count1==0){
                                                     $stepOne=0;
@@ -603,10 +604,10 @@ section{
                                                 $stepOneLink = "stepOne";
                                             }*/
                                             
-                                            if($row['stepTwo'] == "Yes"){
+                                            if(($row['stepTwo'] ?? '') === "Yes") {
                                                 $query = mysqli_query($con, "SELECT * FROM stepTwo WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepTwo = $result['completionPercentage'];
+                                                $stepTwo = $result['completionPercentage'] ?? 0;
                                                 $count2 = mysqli_num_rows($query);
                                                 if($count2==0){
                                                     $stepTwo=0;
@@ -650,10 +651,10 @@ section{
                                             }*/
                                             
                                             
-                                            if($row['stepThree'] == "Yes"){
+                                           if (($row['stepThree'] ?? '') === "Yes") {
                                                 $query = mysqli_query($con, "SELECT * FROM stepThree WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepThree = $result['completionPercentage'];
+                                                 $stepThree = $result['completionPercentage'] ?? 0;
                                                 $count3=mysqli_num_rows($query);
                                                 if($count3==0){
                                                     $stepThree=0;
@@ -698,10 +699,10 @@ section{
                                                 
                                             }*/
                                             
-                                            if($row['stepFour'] == "Yes"){
+                                            if (($row['stepFour'] ?? '') === "Yes") {
                                                 $query = mysqli_query($con, "SELECT * FROM stepFour WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepFour = $result['completionPercentage'];
+                                               $stepFour = $result['completionPercentage'] ?? 0;
                                                 $count4 = mysqli_num_rows($query);
                                                 if($count4==0){
                                                     $stepFour=0;
@@ -746,17 +747,17 @@ section{
                                             }*/
                                             
                                             
-                                            if($row['stepFive'] == "Yes"){
+                                           if (($row['stepFour'] ?? '') === "Yes") {
                                                 $query = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
-                                                $stepFive = $result['completionPercentage'];
+                                                 $stepFour = $result['completionPercentage'] ?? 0;
                                                 $count5 = mysqli_num_rows($query);
                                                 if($count5==0){
                                                     $stepFive=0;
                                                 }
-                                                $datesOfTpiVisit1 = $result['datesOfTpiVisit1'];
-                                                $datesOfTpiVisit2 = $result['datesOfTpiVisit2'];
-                                                $datesOfTpiVisit3 = $result['datesOfTpiVisit3'];
+                                              $datesOfTpiVisit1 = $result['datesOfTpiVisit1'] ?? '';
+                                              $datesOfTpiVisit2 = $result['datesOfTpiVisit2'] ?? '';
+                                              $datesOfTpiVisit3 = $result['datesOfTpiVisit3'] ?? '';
                                                 if($stepFive != ""){
                                                     $stepFiveCompleted = "is-complete pointer";
                                                     $stepFiveLink = "stepFive";
@@ -813,12 +814,12 @@ section{
                                             } else {
                                                 $show = true;
                                             }
-                                            if($r2['status'] == "processing"){
-                                                $status = "Processing";
-                                            } else if($r2['status'] == "approved") {
-                                                $status = "Approved";
-                                            } else if($r2['status'] == "rejected") {
-                                                $status = "Rejected";
+                                            if (($r2['status'] ?? '') === "processing") {
+                                             $status = "Processing";
+                                           } else if (($r2['status'] ?? '') === "approved") {
+                                            $status = "Approved";
+                                             } else if (($r2['status'] ?? '') === "rejected") {
+                                            $status = "Rejected";
                                             }
                                         ?>
 

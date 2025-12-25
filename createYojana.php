@@ -4,7 +4,39 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-require_once("include/con.php");
+require_once("include/_con.php");
+$yojanaId = "";
+$number = "";
+$talukaYojana = "";
+$gramPanchayat = "";
+$village = "";
+$habitation = "";
+$subDivision1 = "";
+$expectedDate = "";
+$exectedStartDate = "";
+$gst = "";
+$executiveEng = "";
+$sectionEng = "";
+$readonly = "";
+
+$showFile = false;
+$showDate = false;
+
+// ===== PHP 8.1 FIX : Year - Population =====
+$yearPopulat1 = "";
+$yearPopulat2 = "";
+$yearPopulat3 = "";
+
+// ===== PHP 8.1 FIX : Daily Demand =====
+$dailyDemand1 = "";
+$dailyDemand2 = "";
+$dailyDemand3 = "";
+
+
+$yearPopulation1 = "";
+$yearPopulation2 = "";
+$yearPopulation3 = "";
+$yearPopulation4 = "";
 
 function isMobileDevice() {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -547,7 +579,7 @@ hr {
                                                                             <label>Work Order</label>
                                                                             <input type="file" <?php echo $readonly ?> name="photo[]" accept=".jpeg,.jpg,.png,.pptx,.xls,.xlsx,.docx,.pdf,.pdf" class="form-control" />
                                                                             <?php
-                                                                            if($showFile == true){
+                                                                            if(!empty($showFile)){
                                                                                 $q = mysqli_query($con, "SELECT * FROM uploadDoc WHERE yojanaId = '$yojanaId' AND docName = 'Work Order'");
                                                                                 $r = mysqli_fetch_assoc($q);
                                                                                 
@@ -574,7 +606,7 @@ hr {
                                                                             <label>Abstract of Estimate</label>
                                                                             <input type="file" <?php echo $readonly ?> name="photo[]" accept=".jpeg,.jpg,.png,.pptx,.xls,.xlsx,.docx,.pdf" class="form-control" />
                                                                             <?php
-                                                                            if($showFile == true){
+                                                                            if(!empty($showFile)){
                                                                                 $q = mysqli_query($con, "SELECT * FROM uploadDoc WHERE yojanaId = '$yojanaId' AND docName = 'Abstract of Estimate'");
                                                                                 $r = mysqli_fetch_assoc($q);
                                                                                 
@@ -601,7 +633,7 @@ hr {
                                                                             <label>Flow Diagram</label>
                                                                             <input type="file" <?php echo $readonly ?> name="photo[]" accept=".jpeg,.jpg,.png,.pptx,.xls,.xlsx,.docx,.pdf" class="form-control" />
                                                                             <?php
-                                                                            if($showFile == true){
+                                                                            if(!empty($showFile)){
                                                                                 $q = mysqli_query($con, "SELECT * FROM uploadDoc WHERE yojanaId = '$yojanaId' AND docName = 'Flow Diagram'");
                                                                                 $r = mysqli_fetch_assoc($q);
                                                                                 
@@ -2883,10 +2915,10 @@ hr {
                                                                         $yojanaId = $_GET['yojanaId'];
                                                                         $q = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = '$value'") or die($con->error);
                                                                         $r = mysqli_fetch_assoc($q);
-                                                                        $yearPopulation1 = $r['yearPopulation1'];
-                                                                        $yearPopulation2 = $r['yearPopulation2'];
-                                                                        $yearPopulation3 = $r['yearPopulation3'];
-                                                                        $yearPopulation4 = $r['yearPopulation4'];
+                                                                       $yearPopulation1 = $r['yearPopulation1'] ?? '';
+                                                    $yearPopulation2 = $r['yearPopulation2'] ?? '';
+                                                    $yearPopulation3 = $r['yearPopulation3'] ?? '';
+                                                    $yearPopulation4 = $r['yearPopulation4'] ?? '';
                                                                     }
                                                                     ?>
                                                                     <tr>
