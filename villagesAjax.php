@@ -11,7 +11,7 @@ require_once('include/sweetAlert.php');
 
 if(isset($_POST['talukaYojana'])){
     $taluka = $_POST['talukaYojana'];
-    $query = mysqli_query($con, "SELECT DISTINCT(yojanaId), yojanaName FROM yojanaMaster WHERE taluka = '$taluka' GROUP BY yojanaId");
+    $query = mysqli_query($con, "SELECT DISTINCT yojanaId, yojanaName FROM yojanaMaster WHERE taluka = '$taluka'");
     ?>
     <label>Name of Scheme</label>
     <select class="js-example-basic-single" required id="yojanaId" name="yojanaId" style="width: 100%;">

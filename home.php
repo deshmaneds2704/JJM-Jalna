@@ -4,11 +4,31 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-include("include/_con.php"); 
+include("include/con.php"); 
 
 function isMobileDevice() {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
 }
+// ========== PAGINATION START ==========
+$records_per_page = 50; // Number of records per page
+$current_page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+if($current_page < 1) $current_page = 1;
+
+// Calculate offset
+$offset = ($current_page - 1) * $records_per_page;
+
+// Get total number of records for the user
+$count_query = mysqli_query($con, "SELECT COUNT(*) as total FROM allocatedYojana WHERE userId = '{$_SESSION['userId']}'");
+$count_result = mysqli_fetch_assoc($count_query);
+$total_records = $count_result['total'];
+$total_pages = ceil($total_records / $records_per_page);
+
+// Ensure current page doesn't exceed total pages
+if($current_page > $total_pages && $total_pages > 0) {
+    $current_page = $total_pages;
+    $offset = ($current_page - 1) * $records_per_page;
+}
+// ========== PAGINATION END ==========
 if(isMobileDevice()){
     $mobile = "col-12 p-1";
     $step = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage (Tappa)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -562,10 +582,10 @@ section{
 
                                     <tbody id="yojanatable">
                                         <?php
-                                        $sql="SELECT * FROM allocatedYojana WHERE userId = '{$_SESSION['userId']}' ORDER BY id DESC";
+                                        $sql="SELECT * FROM allocatedYojana WHERE userId = '{$_SESSION['userId']}' ORDER BY id DESC LIMIT $offset, $records_per_page";
                                 // 		$sql="SELECT * FROM yojanaMaster ORDER BY id DESC";
                                         $result1=mysqli_query($con,$sql);
-                                        $i= 1;
+                                        $i = $offset + 1; // Start counting from correct number for pagination
                                         while ($row1 =mysqli_fetch_assoc($result1) ){
                                             $status = "";
                                             $expectedDate = "";
@@ -1159,7 +1179,75 @@ if(!empty($r2['status'])) {
                                             ?>
                                     </tbody>
 
-                                </table>
+                                                                </table>
+                                
+                                <!-- ========== PAGINATION CONTROLS START ========== -->
+                                <?php if($total_pages > 0): ?>
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">
+                                            Showing <?php echo ($offset + 1); ?> to <?php echo min($offset + $records_per_page, $total_records); ?> 
+                                            of <?php echo $total_records; ?> entries
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination justify-content-end mb-0">
+                                                <!-- First Page Link -->
+                                                <li class="page-item <?php echo ($current_page == 1) ? 'disabled' : ''; ?>">
+                                                    <a class="page-link" href="?page=1" aria-label="First">
+                                                        <i class="mdi mdi-chevron-double-left"></i>
+                                                    </a>
+                                                </li>
+                                                
+                                                <!-- Previous Page Link -->
+                                                <li class="page-item <?php echo ($current_page == 1) ? 'disabled' : ''; ?>">
+                                                    <a class="page-link" href="?page=<?php echo $current_page - 1; ?>" aria-label="Previous">
+                                                        <i class="mdi mdi-chevron-left"></i>
+                                                    </a>
+                                                </li>
+                                                
+                                                <!-- Page Numbers -->
+                                                <?php
+                                                // Show page numbers
+                                                $max_pages_to_show = 5;
+                                                $start_page = max(1, $current_page - floor($max_pages_to_show / 2));
+                                                $end_page = min($total_pages, $start_page + $max_pages_to_show - 1);
+                                                
+                                                // Adjust start page if we're at the end
+                                                if($end_page - $start_page < $max_pages_to_show - 1) {
+                                                    $start_page = max(1, $end_page - $max_pages_to_show + 1);
+                                                }
+                                                
+                                                for($page_num = $start_page; $page_num <= $end_page; $page_num++):
+                                                ?>
+                                                <li class="page-item <?php echo ($page_num == $current_page) ? 'active' : ''; ?>">
+                                                    <a class="page-link" href="?page=<?php echo $page_num; ?>">
+                                                        <?php echo $page_num; ?>
+                                                    </a>
+                                                </li>
+                                                <?php endfor; ?>
+                                                
+                                                <!-- Next Page Link -->
+                                                <li class="page-item <?php echo ($current_page >= $total_pages) ? 'disabled' : ''; ?>">
+                                                    <a class="page-link" href="?page=<?php echo $current_page + 1; ?>" aria-label="Next">
+                                                        <i class="mdi mdi-chevron-right"></i>
+                                                    </a>
+                                                </li>
+                                                
+                                                <!-- Last Page Link -->
+                                                <li class="page-item <?php echo ($current_page >= $total_pages) ? 'disabled' : ''; ?>">
+                                                    <a class="page-link" href="?page=<?php echo $total_pages; ?>" aria-label="Last">
+                                                        <i class="mdi mdi-chevron-double-right"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <?php endif; ?>
+                                <!-- ========== PAGINATION CONTROLS END ========== -->
+                                
                             </div>
 
                         </div>
@@ -1239,17 +1327,16 @@ if(!empty($r2['status'])) {
     <script>
     
         $(document).ready(function(){
-            $('#yojanaTableDT').DataTable({
-                'columnDefs': [ {
-
-                    'targets': [5,6,7], /* column index */
-                
-                    'orderable': false, /* true or false */
-                
-                 }],
-                "pageLength": 100
-            });
-        })
+    $('#yojanaTableDT').DataTable({
+        'columnDefs': [ {
+            'targets': [5,6,7], /* column index */
+            'orderable': false, /* true or false */
+        }],
+        "paging": false, // Disable DataTables pagination since we have manual pagination
+        "searching": false, // Disable DataTables search since you have your own
+        "info": false // Disable DataTables info since we show our own
+    });
+})
         
         function redirect(location, yojanaId){
             if(location != ""){

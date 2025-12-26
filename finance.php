@@ -4,7 +4,7 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-require_once('include/_con.php');
+require_once('include/con.php');
 
 if(isset($_POST['subWork'])){
     $subWork = $_POST['subWork'];
@@ -20,9 +20,16 @@ if(isset($_POST['subWork'])){
     }
     
     $q = mysqli_query($con, "SELECT SUM(amount) as amount FROM finance WHERE yojanaId = '$yojanaId' AND subWorkId = '$subWork' ");
-    $r = mysqli_fetch_assoc($q);
-    $amount = $r['amount'];
-    $remainingAmount = $r['remainingAmount'];
+$r = mysqli_fetch_assoc($q);
+$amount = $r['amount'];
+
+// Calculate remaining amount
+if (empty($r['amount'])) {
+    $amount = 0;
+    $remainingAmount = $actualPrice; // If nothing spent, remaining is full actual price
+} else {
+    $remainingAmount = $actualPrice - $amount;
+}
     if(empty($r['amount'])){
         $amount = 0;
     }
@@ -239,10 +246,17 @@ if(isset($_POST['subWork'])){
                                                                 $id = $result['id'];
                                                                 $actualPrice = $result['actualPrice'];
                                                                 
-                                                                $q = mysqli_query($con, "SELECT SUM(amount) as amount FROM finance WHERE yojanaId = '$yojanaId' AND subWorkId = '$subWork' ");
-                                                                $r = mysqli_fetch_assoc($q);
-                                                                $amount = $r['amount'];
-                                                                $remainingAmount = $r['remainingAmount'];
+                                                               $q = mysqli_query($con, "SELECT SUM(amount) as amount FROM finance WHERE yojanaId = '$yojanaId' AND subWorkId = '$id' ");
+$r = mysqli_fetch_assoc($q);
+$amount = $r['amount'];
+
+// Calculate remaining amount
+if (empty($r['amount'])) {
+    $amount = 0;
+    $remainingAmount = $actualPrice; // If nothing spent, remaining is full actual price
+} else {
+    $remainingAmount = $actualPrice - $amount;
+}
                                                                 if(empty($r['amount'])){
                                                                     $amount = 0;
                                                                 }
