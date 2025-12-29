@@ -6,17 +6,20 @@ if(!isset($_SESSION['userId'])){
 }
 $delayReason = 10;
 require_once('include/con.php');
+
 function isMobileDevice() {
-    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+    $userAgent = $_SERVER["HTTP_USER_AGENT"] ?? '';
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $userAgent);
 }
+
 if(isMobileDevice()){
     $mobile = true;
     $file = "download";
-}
-else {
+} else {
     $mobile = false;
     $file = "target='_blank'";
 }
+
 if(!isset($_GET['yojanaId'])){
 ?>
 <script>
@@ -25,6 +28,18 @@ if(!isset($_GET['yojanaId'])){
 <?php
     die();
 }
+
+// Initialize variables with default values
+$yojanaComplete = $reason = $dateOfCommissioning = $dateOfHandingOver = $datesOfTpiVisit1 = $datesOfTpiVisit2 = '';
+$datesOfTpiVisit3 = $dateOfCompletion = $docName1 = $photo1 = $docName2 = $photo2 = $docName3 = $photo3 = '';
+$docName4 = $photo4 = $longitude = $latitude = $video_link = $remark = '';
+$completionPercentage = 0;
+$exit = false;
+$msedbWork = "no";
+$click = "";
+$checked = '';
+$stepOne = $stepTwo = $stepThree = $stepFour = $stepFive = '';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -129,8 +144,7 @@ if(!isset($_GET['yojanaId'])){
             border: 0;
         }
 
-
-         .steps {
+        .steps {
             list-style: none;
             margin: 0;
             padding: 0;
@@ -210,15 +224,14 @@ if(!isset($_GET['yojanaId'])){
             font-weight: bold;
         }
         
-         ul li, ol li, dl li {
-    line-height: 1.3;
-}
+        ul li, ol li, dl li {
+            line-height: 1.3;
+        }
 
         .steps>.step.is-active:before {
             color: #FFF;
             border: 2px solid #0033c4;
             background: #0033c4;
-            /*margin-bottom: -4.9rem;*/
         }
 
         .steps {
@@ -460,78 +473,80 @@ if(!isset($_GET['yojanaId'])){
         .pointer{
             cursor: pointer;
         }
-         .text{
+        
+        .text{
             font-size: 10px;
         }
-         @media screen and (max-width: 600px) {
-             .text{
-                 font-size: 8px;
-             }
-             .font
-             {
-                 font-size:10px;
-             }
-              .steps>.step:before
-             {
-                 top:62%;
-             }
-             .steps>.step:after
-             {
-                 top: 3.5rem;
-             }
-             .card .card-title
-             {
-                 font-size:13px;
-             }
+        
+        @media screen and (max-width: 600px) {
+            .text{
+                font-size: 8px;
+            }
+            .font {
+                font-size:10px;
+            }
+            .steps>.step:before {
+                top:62%;
+            }
+            .steps>.step:after {
+                top: 3.5rem;
+            }
+            .card .card-title {
+                font-size:13px;
+            }
         }
+        
         #divcheck2, #divcheck3{
             display: none;
         }
     </style>
-    
-
 </head>
 
 <body>
     <div class="container-scroller">
         <?php
         include('header.php');
-        $yojanaId = $_GET['yojanaId'];
+        $yojanaId = $_GET['yojanaId'] ?? '';
         $q = mysqli_query($con, "SELECT * FROM yojanaMaster WHERE yojanaId = '$yojanaId'");
-        $r = mysqli_fetch_assoc($q);
-        $yojanaName = $r['yojanaName'];
-        $stepOne = $r['stepOne'];
-        $stepTwo = $r['stepTwo'];
-        $stepThree = $r['stepThree'];
-        $stepFour = $r['stepFour'];
-        $stepFive = $r['stepFive'];
+        $r = mysqli_fetch_assoc($q) ?? [];
+        $yojanaName = $r['yojanaName'] ?? '';
+        $stepOne = $r['stepOne'] ?? '';
+        $stepTwo = $r['stepTwo'] ?? '';
+        $stepThree = $r['stepThree'] ?? '';
+        $stepFour = $r['stepFour'] ?? '';
+        $stepFive = $r['stepFive'] ?? '';
         
         $query = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'");
         
         if(mysqli_num_rows($query) > 0){
-            $result = mysqli_fetch_assoc($query);
-            $yojanaComplete =  $result['yojanaComplete'];
-            $reason = $result['reason'];
-            $dateOfCommissioning = $result['dateOfCommissioning'];
-            $dateOfHandingOver = $result['dateOfHandingOver'];
-            $datesOfTpiVisit1 = $result['datesOfTpiVisit1'];
-            $datesOfTpiVisit2 = $result['datesOfTpiVisit2'];
-            $datesOfTpiVisit3 = $result['datesOfTpiVisit3'];
-            $dateOfCompletion = $result['dateOfCompletion'];
-            $docName1 = $result['docName1'];
-            $photo1 = $result['photo1'];
-            $docName2 = $result['docName2'];
-            $photo2 = $result['photo2'];
-            $docName3 = $result['docName3'];
-            $photo3 = $result['photo3'];
-            $docName4 = $result['docName4'];
-            $photo4 = $result['photo4'];
-            $longitude = $result['longitude'];
-            $latitude = $result['latitude'];
-            $video_link  = $result['video_link'];
-            $completionPercentage = $result['completionPercentage'];
-            $remark = $result['remark'];
+            $result = mysqli_fetch_assoc($query) ?? [];
+            $yojanaComplete = $result['yojanaComplete'] ?? '';
+            $reason = $result['reason'] ?? '';
+            $dateOfCommissioning = $result['dateOfCommissioning'] ?? '';
+            $dateOfHandingOver = $result['dateOfHandingOver'] ?? '';
+            $datesOfTpiVisit1 = $result['datesOfTpiVisit1'] ?? '';
+            $datesOfTpiVisit2 = $result['datesOfTpiVisit2'] ?? '';
+            $datesOfTpiVisit3 = $result['datesOfTpiVisit3'] ?? '';
+            $dateOfCompletion = $result['dateOfCompletion'] ?? '';
+            $docName1 = $result['docName1'] ?? '';
+            $photo1 = $result['photo1'] ?? '';
+            $docName2 = $result['docName2'] ?? '';
+            $photo2 = $result['photo2'] ?? '';
+            $docName3 = $result['docName3'] ?? '';
+            $photo3 = $result['photo3'] ?? '';
+            $docName4 = $result['docName4'] ?? '';
+            $photo4 = $result['photo4'] ?? '';
+            $longitude = $result['longitude'] ?? '';
+            $latitude = $result['latitude'] ?? '';
+            $video_link  = $result['video_link'] ?? '';
+            $completionPercentage = $result['completionPercentage'] ?? 0;
+            $remark = $result['remark'] ?? '';
             $exit = true;
+            
+            if($yojanaComplete == "on"){
+                $checked = 'onclick="checkMe(this.checked);"';
+                $click = "<script>document.getElementById('a').click();document.getElementById('divcheck').style.display = 'none';</script>";
+            }
         } else {
             $exit = false;
             $completionPercentage = 0;
@@ -547,7 +562,7 @@ if(!isset($_GET['yojanaId'])){
                             <div class="card">
                                 <div class="card-body">
                                     <?php
-                                    if($_SESSION['designation'] != "sectionEng"){
+                                    if(($_SESSION['designation'] ?? '') != "sectionEng"){
                                         if(isset($_GET['back'])){
                                             $page = "acceptExtension";    
                                             if($_GET['back'] == "yojanaAllData"){
@@ -568,25 +583,18 @@ if(!isset($_GET['yojanaId'])){
                                     <h4 class="card-title center"><?php echo $yojanaName." (".$yojanaId.")" ?></h4>
                                     <ol class="steps">
                                         <?php
-                                        
-                                        //
-                                        //Step One
-                                        //
+                                        // Step One
                                         if($stepOne == "Yes"){
                                             $stepOneCompleted = "is-complete";
                                             $query = mysqli_query($con,"SELECT * FROM stepOne WHERE yojanaId = '$yojanaId'") or die("ERROR123"); 
-                                            $result = mysqli_fetch_assoc($query);
-                                            if($result['completionPercentage'] == 0 ){
-                                               $percentage = 0; 
-                                            } else {
-                                                $percentage = $result['completionPercentage'];
-                                            }
+                                            $result = mysqli_fetch_assoc($query) ?? [];
+                                            $percentage = $result['completionPercentage'] ?? 0;
                     					    if(mysqli_num_rows($query)>0){
-                                                                $check_one = 0;
-                                                                if($percentage < 100 ){
-                                                                    $stepOneCompleted = "is-incomplete pointer";
-                                                                }
-                    					    }else{
+                                                $check_one = 0;
+                                                if($percentage < 100 ){
+                                                    $stepOneCompleted = "is-incomplete pointer";
+                                                }
+                    					    } else {
                     					        $stepOneCompleted = "";
                     					    }                                        
                                         ?>                                       
@@ -600,25 +608,18 @@ if(!isset($_GET['yojanaId'])){
                                         <?php
                                         }
                                         
-                                        
-                                        //
-                                        //Step Two
-                                        //
+                                        // Step Two
                                         if($stepTwo == "Yes"){
                                             $stepTwoCompleted = "is-complete";
                                             $query = mysqli_query($con,"SELECT * FROM stepTwo WHERE yojanaId = '$yojanaId'") or die("ERROR123"); 
-                                            $result = mysqli_fetch_assoc($query);
-                                            if($result['completionPercentage'] == 0 ){
-                                               $percentage = 0; 
-                                            } else {
-                                                $percentage = $result['completionPercentage'];
-                                            }
+                                            $result = mysqli_fetch_assoc($query) ?? [];
+                                            $percentage = $result['completionPercentage'] ?? 0;
                     					    if(mysqli_num_rows($query)>0){
                                                 $check_two = 0;
                                                 if($percentage < 100 ){
                                                     $stepTwoCompleted = "is-incomplete pointer";
                                                 }
-                    					    }else{
+                    					    } else {
                     					       $stepTwoCompleted = ""; 
                     					    }                                        
                                         ?>
@@ -632,24 +633,18 @@ if(!isset($_GET['yojanaId'])){
                                         <?php
                                         }
                                         
-                                        //
-                                        //Step Three
-                                        //
+                                        // Step Three
                                         if($stepThree == "Yes"){
                                             $stepThreeCompleted = "is-complete";
                                             $query = mysqli_query($con,"SELECT * FROM stepThree WHERE yojanaId = '$yojanaId'") or die("ERROR123"); 
-                                            $result = mysqli_fetch_assoc($query);  
-                                            if($result['completionPercentage'] == 0 ){
-                                               $percentage = 0; 
-                                            } else {
-                                                $percentage = $result['completionPercentage'];
-                                            }
+                                            $result = mysqli_fetch_assoc($query) ?? [];  
+                                            $percentage = $result['completionPercentage'] ?? 0;
                     					    if(mysqli_num_rows($query)>0){
-                                                                $check_three = 0;
-                                                                if($percentage < 100 ){
-                                                                    $stepThreeCompleted = "is-incomplete pointer";
-                                                                }
-                    					    }else{
+                                                $check_three = 0;
+                                                if($percentage < 100 ){
+                                                    $stepThreeCompleted = "is-incomplete pointer";
+                                                }
+                    					    } else {
                     					        $stepThreeCompleted = "";
                     					    }                                        
                                         ?>
@@ -663,24 +658,18 @@ if(!isset($_GET['yojanaId'])){
                                         <?php
                                         }
                                         
-                                        //
-                                        //Step Four
-                                        //
+                                        // Step Four
                                         if($stepFour == "Yes"){
                                             $stepFourCompleted = "is-complete";
                                             $query = mysqli_query($con,"SELECT * FROM stepFour WHERE yojanaId = '$yojanaId'") or die("ERROR123"); 
-                                            $result = mysqli_fetch_assoc($query);   
-                                            if($result['completionPercentage'] == 0 ){
-                                               $percentage = 0; 
-                                            } else {
-                                                $percentage = $result['completionPercentage'];
-                                            }
+                                            $result = mysqli_fetch_assoc($query) ?? [];   
+                                            $percentage = $result['completionPercentage'] ?? 0;
                     					    if(mysqli_num_rows($query)>0){
-                                                                $check_four = 0;
-                                                                if($percentage < 100 ){
-                                                                    $stepFourCompleted = "is-incomplete pointer";
-                                                                }  
-                    					    }else{
+                                                $check_four = 0;
+                                                if($percentage < 100 ){
+                                                    $stepFourCompleted = "is-incomplete pointer";
+                                                }  
+                    					    } else {
                     					        $stepFourCompleted = "";
                     					    }                                         
                                         ?>
@@ -694,27 +683,15 @@ if(!isset($_GET['yojanaId'])){
                                         <?php 
                                         }
                                         
-                                        
-                                        //
-                                        //Step Five
-                                        //
-                                        // if($stepFive == "Yes"){
-                                            $query = mysqli_query($con,"SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'") or die("ERROR123"); 
-                                            $result = mysqli_fetch_assoc($query);   
-                                            if($result['completionPercentage'] == 0 ){
-                                               $percentage = 0; 
-                                            } else {
-                                                $percentage = $result['completionPercentage'];
-                                            }
+                                        // Step Five
+                                        $query = mysqli_query($con,"SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'") or die("ERROR123"); 
+                                        $result = mysqli_fetch_assoc($query) ?? [];   
+                                        $percentage = $result['completionPercentage'] ?? 0;
                                         ?>
                                         <li class="step is-active" onclick="redirect('stepFive', '<?php echo $yojanaId ?>')" data-step="4">
-                                             
                                             <p style="font-weight:bold;margin-bottom:5px;margin-top: 11px;"><?php echo $percentage ?>%</p>
                                            <span class="font"> Stage 4</span>
                                         </li>
-                                        <?php 
-                                        // }
-                                        ?>
                                     </ol>
                                     <br>
                                     <h4 class="card-title">Trial Run</h4>
@@ -733,8 +710,6 @@ if(!isset($_GET['yojanaId'])){
                                                     if($yojanaComplete == "on"){
                                                         $checked = 'onclick="checkMe(this.checked);"';
                                                         $click =  "<script>document.getElementById('a').click();document.getElementById('divcheck').style.display = 'none';</script>";
-                                                    } else {
-                                                        $checked = '';
                                                     }
                                                     ?>
                                                     <input id="a" name="yojanaComplete" type="checkbox" onclick="checkMe(this.checked);percentageCal();" >
@@ -751,7 +726,7 @@ if(!isset($_GET['yojanaId'])){
                                             <div class="col-md-6" id="divcheck">
                                                 <div class="form-group" >
                                                     <label> Reason for non-completion </label>
-                                                    <input type="text" class="form-control" value="<?php echo $reason; ?>" id="reason" name="reason" />
+                                                    <input type="text" class="form-control" value="<?php echo htmlspecialchars($reason); ?>" id="reason" name="reason" />
                                                 </div>
                                             </div>
                                             
@@ -807,7 +782,7 @@ if(!isset($_GET['yojanaId'])){
                                                             <div class="form-group">
                                                                 <label for="docName">Document Name </label>
                                                                 <input type="text" class="form-control" id="docName"
-                                                                    name="docName1" value="<?php echo $docName1 ?>">
+                                                                    name="docName1" value="<?php echo htmlspecialchars($docName1) ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -817,9 +792,9 @@ if(!isset($_GET['yojanaId'])){
                                                                     accept=".jpeg,.jpg,.png,.pdf,.pptx,.xls,.xlsx,.docx"
                                                                     class="form-control" />
                                                                     <?php
-                                                                    if($photo1){
+                                                                    if(!empty($photo1)){
                                                                     ?>
-                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo $photo1 ?>"> <?php echo $photo1 ?> <i class="bi bi-arrow-right"></i></a>
+                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo htmlspecialchars($photo1) ?>"> <?php echo htmlspecialchars($photo1) ?> <i class="bi bi-arrow-right"></i></a>
                                                                     <?php
                                                                     }
                                                                     ?>
@@ -828,7 +803,7 @@ if(!isset($_GET['yojanaId'])){
                                                     </div>
                                                     
                                                     <?php 
-                                                    if($docName2 != ""){
+                                                    if(!empty($docName2)){
                                                         $document = 3;
                                                     ?>
                                                     <div class="row">
@@ -836,7 +811,7 @@ if(!isset($_GET['yojanaId'])){
                                                             <div class="form-group">
                                                                 <label for="docName">Document Name </label>
                                                                 <input type="text" class="form-control" id="docName"
-                                                                    name="docName2" value="<?php echo $docName2 ?>">
+                                                                    name="docName2" value="<?php echo htmlspecialchars($docName2) ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -846,9 +821,9 @@ if(!isset($_GET['yojanaId'])){
                                                                     accept=".jpeg,.jpg,.png,.pdf,.pptx,.xls,.xlsx,.docx"
                                                                     class="form-control" />
                                                                     <?php
-                                                                    if($photo2){
+                                                                    if(!empty($photo2)){
                                                                     ?>
-                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo $photo2 ?>"> <?php echo $photo2 ?> <i class="bi bi-arrow-right"></i></a>
+                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo htmlspecialchars($photo2) ?>"> <?php echo htmlspecialchars($photo2) ?> <i class="bi bi-arrow-right"></i></a>
                                                                     <?php
                                                                     }
                                                                     ?>
@@ -857,7 +832,7 @@ if(!isset($_GET['yojanaId'])){
                                                     </div>
                                                     <?php
                                                     }
-                                                    if($docName3 != ""){
+                                                    if(!empty($docName3)){
                                                         $document = 4;
                                                     ?>
                                                     <div class="row">
@@ -865,7 +840,7 @@ if(!isset($_GET['yojanaId'])){
                                                             <div class="form-group">
                                                                 <label for="docName">Document Name </label>
                                                                 <input type="text" class="form-control" id="docName"
-                                                                    name="docName3" value="<?php echo $docName3 ?>">
+                                                                    name="docName3" value="<?php echo htmlspecialchars($docName3) ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -875,9 +850,9 @@ if(!isset($_GET['yojanaId'])){
                                                                     accept=".jpeg,.jpg,.png,.pdf,.pptx,.xls,.xlsx,.docx"
                                                                     class="form-control" />
                                                                     <?php
-                                                                    if($photo3){
+                                                                    if(!empty($photo3)){
                                                                     ?>
-                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo $photo3 ?>"> <?php echo $photo3 ?> <i class="bi bi-arrow-right"></i></a>
+                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo htmlspecialchars($photo3) ?>"> <?php echo htmlspecialchars($photo3) ?> <i class="bi bi-arrow-right"></i></a>
                                                                     <?php
                                                                     }
                                                                     ?>
@@ -886,7 +861,7 @@ if(!isset($_GET['yojanaId'])){
                                                     </div>
                                                     <?php
                                                     }
-                                                    if($docName4 != ""){
+                                                    if(!empty($docName4)){
                                                         $document = 5;
                                                     ?>
                                                     <div class="row">
@@ -894,7 +869,7 @@ if(!isset($_GET['yojanaId'])){
                                                             <div class="form-group">
                                                                 <label for="docName">Document Name </label>
                                                                 <input type="text" class="form-control" id="docName"
-                                                                    name="docName4" value="<?php echo $docName4 ?>">
+                                                                    name="docName4" value="<?php echo htmlspecialchars($docName4) ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -904,9 +879,9 @@ if(!isset($_GET['yojanaId'])){
                                                                     accept=".jpeg,.jpg,.png,.pdf,.pptx,.xls,.xlsx,.docx"
                                                                     class="form-control" />
                                                                     <?php
-                                                                    if($photo4){
+                                                                    if(!empty($photo4)){
                                                                     ?>
-                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo $photo4 ?>"> <?php echo $photo4 ?> <i class="bi bi-arrow-right"></i></a>
+                                                                    Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo htmlspecialchars($photo4) ?>"> <?php echo htmlspecialchars($photo4) ?> <i class="bi bi-arrow-right"></i></a>
                                                                     <?php
                                                                     }
                                                                     ?>
@@ -918,8 +893,6 @@ if(!isset($_GET['yojanaId'])){
                                                     ?>
                                                 </div>
                                             </div>
-
-                                            <input type="hidden" value="">
 
                                             <div class="col-md-2">
                                                 <div class="row" style="height:75px;">
@@ -948,28 +921,22 @@ if(!isset($_GET['yojanaId'])){
                                      <div class="row">
                                             <div class="col-md-6">
                                                 <?php 
-                                                
                                                 $q4 = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'MSEDC Work'");
-                                                if(mysqli_num_rows($q4) >0){
+                                                if(mysqli_num_rows($q4) > 0){
                                                     $msedbWork = "yes";
-                                                
-                                                if($exit == true){
-                                                    $q2 = mysqli_query($con, "SELECT * FROM delayYojanas WHERE yojanaId = '$yojanaId' AND subWork = 'MSEDC Work'");
-                                                    if(mysqli_num_rows($q2)>0){
-                                                        $r2 = mysqli_fetch_assoc($q2);
-                                                        $radio = '$("#delayMsedc'.$r2['delay'].'").click();';
-                                                        if($r2['reason'] == "Other"){
-                                                            $display = '';
-                                                        } else {
-                                                            $display = 'style="display:none"';
-                                                        }
-                                                    } else {
-                                                        $radio = "";
-                                                        $display = 'style="display:none"';
-                                                    }
-                                                } else {
                                                     $display = 'style="display:none"';
-                                                }
+                                                    $radio = "";
+                                                
+                                                    if($exit){
+                                                        $q2 = mysqli_query($con, "SELECT * FROM delayYojanas WHERE yojanaId = '$yojanaId' AND subWork = 'MSEDC Work'");
+                                                        if(mysqli_num_rows($q2)>0){
+                                                            $r2 = mysqli_fetch_assoc($q2) ?? [];
+                                                            $radio = '$("#delayMsedc'.$r2['delay'].'").click();';
+                                                            if(($r2['reason'] ?? '') == "Other"){
+                                                                $display = '';
+                                                            }
+                                                        }
+                                                    }
                                                 ?>
                                                 
                                                 <div class="row">
@@ -991,14 +958,10 @@ if(!isset($_GET['yojanaId'])){
                                                                 $delay = 0;
                                                                 $q = mysqli_query($con, "SELECT * FROM delayReasons");
                                                                 while($r = mysqli_fetch_assoc($q)){
-                                                                    if($r['reasons'] == $r2['reason']){
-                                                                        $selected = "selected";
-                                                                    } else {
-                                                                        $selected = "";
-                                                                        $delay++;
-                                                                    }
+                                                                    $selected = (($r2['reason'] ?? '') == $r['reasons']) ? "selected" : "";
+                                                                    $delay++;
                                                                 ?>
-                                                                <option <?php echo $selected ?>><?php echo $r['reasons'] ?></option>
+                                                                <option <?php echo $selected ?>><?php echo htmlspecialchars($r['reasons']) ?></option>
                                                                 <?php
                                                                 }
                                                                 ?>
@@ -1009,7 +972,7 @@ if(!isset($_GET['yojanaId'])){
                                                     <div class="col-md-6" id="otherReasonMsedcDiv" <?php echo $display; ?>>
                                                         <div class="form-group">
                                                             <label for="">Other Reason</label>     
-                                                            <input type="text" class="form-control" id="otherReasonMsedc" value="<?php echo $r2['otherReason'] ?>" name="otherReasonMsedc" style="height:20px;"/>
+                                                            <input type="text" class="form-control" id="otherReasonMsedc" value="<?php echo htmlspecialchars($r2['otherReason'] ?? '') ?>" name="otherReasonMsedc" style="height:20px;"/>
                                                         </div>
                                                     </div>
                                                     
@@ -1018,9 +981,9 @@ if(!isset($_GET['yojanaId'])){
                                                             <label>File</label>
                                                             <input type="file" name="delayDocumentMsedc" accept=".jpeg,.jpg,.png,.pptx,.xls,.xlsx,.docx,.pdf" data-id="1" class="form-control document" />  
                                                             <?php 
-                                                            if($r1['document']){
+                                                            if(!empty($r1['document'] ?? '')){
                                                             ?>
-                                                            Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo $r1['document'] ?>"> <?php echo $r1['document'] ?> <i class="bi bi-arrow-right"></i></a>
+                                                            Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo htmlspecialchars($r1['document']) ?>"> <?php echo htmlspecialchars($r1['document']) ?> <i class="bi bi-arrow-right"></i></a>
                                                             <?php
                                                             }
                                                             ?>
@@ -1030,31 +993,27 @@ if(!isset($_GET['yojanaId'])){
                                                 
                                                 <div class="row" id="checkboxMsedcDiv" style="display:none">
                                                     <?php
-                                                    
                                                     $query = mysqli_query($con, "SELECT * FROM scheduleMaster WHERE subWork = 'MSEDC Work'");
                                                     while($result = mysqli_fetch_assoc($query)){
                                                         $i = $result['id'];
-                                                        if($exit == true){
+                                                        $check = "";
+                                                        $show = "style='display:none'";
+                                                        
+                                                        if($exit){
                                                             $q1 = mysqli_query($con, "SELECT * FROM schedule WHERE scheduleId = '$i' AND yojanaId = '$yojanaId'");
-                                                            $r1 = mysqli_fetch_assoc($q1);
                                                             if(mysqli_num_rows($q1)>0){
+                                                                $r1 = mysqli_fetch_assoc($q1) ?? [];
                                                                 $check = '$("#Msedc'.$i.'").click();';
-                                                            } else {
-                                                                $check = "";
+                                                                if(($r1['reason'] ?? '') == "Other"){
+                                                                    $show = "style='display:block'";
+                                                                }
                                                             }
-                                                            if($r1['reason'] == "Other"){
-                                                                $show = "style='display:block'";
-                                                            } else {
-                                                                $show = "style='display:none'";
-                                                            }
-                                                        }else {
-                                                                $show = "style='display:none'";
                                                         }
                                                         $per = $result['percentage'];
                                                     ?>
                                                 
                                                     <div class="col-md-12">
-                                                        <p style="display:flex"><span><input type="checkbox" onclick="percentageCal()" class="percentage" data-per="<?php echo $per; ?>" id="Msedc<?php echo $i ?>" name="msedcSchedule[]" value="<?php echo $i ?>"></span>&nbsp; <label for="Msedc<?php echo $i ?>"><?php echo $result['schedule']." (".$per."%)" ?></label></p>
+                                                        <p style="display:flex"><span><input type="checkbox" onclick="percentageCal()" class="percentage" data-per="<?php echo $per; ?>" id="Msedc<?php echo $i ?>" name="msedcSchedule[]" value="<?php echo $i ?>"></span>&nbsp; <label for="Msedc<?php echo $i ?>"><?php echo htmlspecialchars($result['schedule'])." (".$per."%)" ?></label></p>
                                                     </div>
                                                     
                                                     <div class="col-md-12">
@@ -1062,32 +1021,20 @@ if(!isset($_GET['yojanaId'])){
                                                             <label>File</label>
                                                             <input type="file" name="documentMsedc[]" accept=".jpeg,.jpg,.png,.pptx,.xls,.xlsx,.docx,.pdf" data-id="1" class="form-control document" />  
                                                             <?php 
-                                                            if($r1['document']){
+                                                            if(!empty($r1['document'] ?? '')){
                                                             ?>
-                                                            Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo $r1['document'] ?>"> <?php echo $r1['document'] ?> <i class="bi bi-arrow-right"></i></a>
+                                                            Your Selected File is <a <?php echo $file ?> href="uploadedDoc/<?php echo htmlspecialchars($r1['document']) ?>"> <?php echo htmlspecialchars($r1['document']) ?> <i class="bi bi-arrow-right"></i></a>
                                                             <?php
                                                             }
                                                             ?>
                                                         </div>
                                                     </div>
-                                        
-
-                                                
-                                                    <script>
-                                                        <?php
-                                                        if($exit == true){
-                                                            // echo '$("#delayMsedc'.$r1['delay'].$i.'").click();';
-                                                            echo $check;
-                                                        }
-                                                        ?>
-                                                    </script>
                                                     <hr>
                                                     <?php
                                                     }
                                                     ?>
                                                 </div>
                                                 <script>
-                                                    
                                                     <?php
                                                     echo $radio;
                                                     ?>
@@ -1115,8 +1062,6 @@ if(!isset($_GET['yojanaId'])){
                                                 }
                                                 ?>
                                             </div>
-                                            
-                                            
                                         </div>
                                      
                                         <div class="form-group">
@@ -1131,12 +1076,12 @@ if(!isset($_GET['yojanaId'])){
                                         
                                         <div class="form-group">
                                             <label for="video_link">Upload Video Link</label>
-                                            <input type="url" class="form-control" id="video_link" name="video_link" value="<?php echo $video_link ?>" placeholder="Video Link" />
+                                            <input type="url" class="form-control" id="video_link" name="video_link" value="<?php echo htmlspecialchars($video_link) ?>" placeholder="Video Link" />
                                         </div>
                                         
                                         <div class="form-group">
                                             <label for="remark">Handing over note </label>
-                                            <input type="text" class="form-control" id="remark" value="<?php echo $remark ?>" name="remark" />
+                                            <input type="text" class="form-control" id="remark" value="<?php echo htmlspecialchars($remark) ?>" name="remark" />
                                         </div>
 
                                         <button type="submit" class="btn btn-primary me-2" name="submit"> Submit </button>
@@ -1144,17 +1089,14 @@ if(!isset($_GET['yojanaId'])){
                                 </div>
                             </div>
                         </div>
-
-                     
                     </div>
-
                 </div>
             </div>
 
             <!-- content-wrapper ends -->
             <?php 
-          include('footer.php');
-          ?>
+            include('footer.php');
+            ?>
         </div>
         <!-- main-panel ends -->
     </div>
@@ -1182,11 +1124,10 @@ if(!isset($_GET['yojanaId'])){
     <!-- End custom js for this page -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <?php 
-    
     require_once('include/sweetAlert.php');
     if(isset($_SESSION['status'])){
-        $status = $_SESSION['status'];
-        $msg = $_SESSION['msg'];
+        $status = $_SESSION['status'] ?? false;
+        $msg = $_SESSION['msg'] ?? '';
         if($status != true){
             toastMsg('error', $msg);
         } else {
@@ -1201,14 +1142,13 @@ if(!isset($_GET['yojanaId'])){
     <script>
         function percentageCal(){
             <?php 
-            if($msedbWork == "yes"){
+            if(($msedbWork ?? '') == "yes"){
             ?>
             var per = 0;
             var arr = $('.percentage').map(function () {
                 if(this.checked){
                     per = per + Number($(this).data('per'));
                 }
-                // console.log($(this).data('per'));
             }).get();
             totalPer = per;
             totalPer = totalPer.toFixed(0);
@@ -1231,7 +1171,7 @@ if(!isset($_GET['yojanaId'])){
     </script>
     <script type="text/javascript">
         <?php 
-        echo $readonly;
+        echo $readonly ?? '';
         ?>
     
         function checkMe(selected) {
@@ -1239,14 +1179,11 @@ if(!isset($_GET['yojanaId'])){
                 document.getElementById("divcheck").style.display = "none";
                 document.getElementById("divcheck3").style.display = "block";
                 document.getElementById("divcheck2").style.display = "block";
-            }
-            else {
+            } else {
                 document.getElementById("divcheck").style.display = "";
                 document.getElementById("divcheck3").style.display = "none";
                 document.getElementById("divcheck2").style.display = "none";
-
             }
-
         }
         
         function redirect(location, yojanaId){
@@ -1268,11 +1205,8 @@ if(!isset($_GET['yojanaId'])){
                         $(this).html(v);
                     });
                     range.on('input', function () {
-
-
                         var val = this.value + "%";
                         $(this).next(value).html(val);
-
                     });
                 });
             };
@@ -1285,8 +1219,6 @@ if(!isset($_GET['yojanaId'])){
         var suspected = Number(4);
         $("#add").on("click", function on() {
             if (count <= 4) {
-                var type = $('#element').val();
-
                 $("#textboxDiv").append("<div class='row'><div class='col-md-6'><div class='form-group'><label>Document Name </label><input type='text' onkeyup='referred()' class='form-control' required name='docName"+count+"' id='doc'></div></div><div class='col-md-6'> <div class='form-group'><label>Upload File</label><input type='file' name='photo"+count+"' accept='.jpeg,.jpg,.png,.pdf,.pptx,.xls,.xlsx,.docx' class='form-control' /></div></div>");
                 count = count + 1;
                 count2 = count - 1;
@@ -1304,7 +1236,6 @@ if(!isset($_GET['yojanaId'])){
                 $("#textboxDiv").children().last().remove();
                 count = count - 1;
                 count2 = count - 1;
-                // document.getElementById("total_member").value = count2;
                 $("#add").show();
                 if (count == 2) {
                     $("#remove").hide();
@@ -1315,5 +1246,4 @@ if(!isset($_GET['yojanaId'])){
         });
     </script>
 </body>
-
 </html>

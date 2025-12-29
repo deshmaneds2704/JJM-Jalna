@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
