@@ -4,7 +4,7 @@ if(!isset($_SESSION['userId'])){
     header('location:login');
     die();
 }
-include("include/_con.php"); 
+include("include/con.php"); 
 
 function isMobileDevice() {
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
@@ -563,9 +563,30 @@ section{
                                         $result1=mysqli_query($con,$sql);
                                         $i= 1;
                                         while ($row =mysqli_fetch_assoc($result1) ){
-                                            $status = "";
-                                            $percentage = 0;
-                                            $yojanaId = $row['yojanaId'];
+    $status = "";
+    $percentage = 0;
+    $yojanaId = $row['yojanaId'];
+    
+    // FIX: Initialize all step variables to avoid undefined warnings
+    $stepOne = 0;
+    $stepTwo = 0;
+    $stepThree = 0;
+    $stepFour = 0;
+    $stepFive = 0;
+    
+    // Also initialize the completion status variables
+    $stepOneCompleted = "";
+    $stepTwoCompleted = "";
+    $stepThreeCompleted = "";
+    $stepFourCompleted = "";
+    $stepFiveCompleted = "";
+    
+    // Initialize step links
+    $stepOneLink = "";
+    $stepTwoLink = "";
+    $stepThreeLink = "";
+    $stepFourLink = "";
+    $stepFiveLink = "";
                                             
                                           if (($row['stepOne'] ?? '') === "Yes") {
                                                 $query = mysqli_query($con, "SELECT * FROM stepOne WHERE yojanaId = '$yojanaId'");
@@ -699,8 +720,8 @@ section{
                                                 
                                             }*/
                                             
-                                            if (($row['stepFour'] ?? '') === "Yes") {
-                                                $query = mysqli_query($con, "SELECT * FROM stepFour WHERE yojanaId = '$yojanaId'");
+                                            if (($row['stepFive'] ?? '') === "Yes") {
+    $query = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'");
                                                 $result = mysqli_fetch_assoc($query);
                                                $stepFour = $result['completionPercentage'] ?? 0;
                                                 $count4 = mysqli_num_rows($query);
