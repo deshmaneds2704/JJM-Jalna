@@ -1,18 +1,18 @@
 <?php
 session_start();
-if(!isset($_SESSION['userId'])){
+if (!isset($_SESSION['userId'])) {
     header('location:login');
     die();
 }
-require_once("include/con.php"); 
-function isMobileDevice() {
+require_once("include/con.php");
+function isMobileDevice()
+{
     return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
 }
-if(isMobileDevice()){
+if (isMobileDevice()) {
     $mobile = "col-12 p-1";
     $step = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage (Tappa)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-}
-else {
+} else {
     $mobile = "col-4 p-0";
     $step = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stage (Tappa)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 }
@@ -139,13 +139,13 @@ else {
             background: #e2fefb;
             border: 2px solid #3CB371;
         }
-        
+
         .steps>.step.is-incomplete:before {
-                content: "!";
-                color: red;
-                background: yellow;
-                border: 2px solid red;
-        }        
+            content: "!";
+            color: red;
+            background: yellow;
+            border: 2px solid red;
+        }
 
         .steps>.step.is-complete:after {
             background: #3CB371;
@@ -180,59 +180,78 @@ else {
         #village {
             font-size: 12px;
         }
-        .progress{
-            border-radius:0;
-            overflow:visible;
+
+        .progress {
+            border-radius: 0;
+            overflow: visible;
         }
-        .progress-bar{
-            background:rgb(23,44,60); 
+
+        .progress-bar {
+            background: rgb(23, 44, 60);
             -webkit-transition: width 1.5s ease-in-out;
             transition: width 1.5s ease-in-out;
         }
-        
-        .tooltip{ 
-            position:relative;
-            float:right;
+
+        .tooltip {
+            position: relative;
+            float: right;
             z-index: 1000 !important;
         }
-        
-        .popOver + .tooltip > .tooltip-arrow {  border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #eebf3f;}
-        .tooltip > .tooltip-inner {background-color: #eebf3f; padding:5px 15px; color:white; font-weight:bold; font-size:13px;}
-        
-        .step-span{
+
+        .popOver+.tooltip>.tooltip-arrow {
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #eebf3f;
+        }
+
+        .tooltip>.tooltip-inner {
+            background-color: #eebf3f;
+            padding: 5px 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .step-span {
             font-size: 10px;
         }
-        
+
         @media only screen and (max-width: 600px) {
             #step {
                 width: 200px;
             }
         }
-         @media only screen and (max-width: 600px) {
+
+        @media only screen and (max-width: 600px) {
             #heatmap {
-                height:500px;
+                height: 500px;
             }
         }
+
         @media only screen and (max-width: 600px) {
             #scheme {
-                font-size:12px;
+                font-size: 12px;
             }
         }
+
         @media only screen and (max-width: 600px) {
-            #count{
-               font-size:10px;
+            #count {
+                font-size: 10px;
             }
         }
+
         @media only screen and (max-width: 600px) {
             .main-panel .content-wrapper .color-card-wrapper .card-body .color-card-outer .color-card {
-                width:95%;
+                width: 95%;
             }
         }
-        @media only screen and (min-width: 769px){
-            #scheme{
-                font-size:16px;
+
+        @media only screen and (min-width: 769px) {
+            #scheme {
+                font-size: 16px;
             }
         }
+
         .responsive-iframe {
             position: absolute;
             top: 0;
@@ -250,7 +269,7 @@ else {
     <div class="container-scroller">
         <?php
         include('header.php');
-    ?>
+        ?>
         <div class="container-fluid page-body-wrapper">
             <div class="main-panel">
                 <div class="content-wrapper pb-0">
@@ -261,27 +280,27 @@ else {
                         <!-- data-->
                         <?php
                         require_once('include/con.php');
-                        $query1=mysqli_query($con,"select count(yojanaId) as 'total_schemes' from yojanaMaster");
-                        $result1=mysqli_fetch_assoc($query1);
-                        $rowcount1=$result1['total_schemes'];
-                        
+                        $query1 = mysqli_query($con, "select count(yojanaId) as 'total_schemes' from yojanaMaster");
+                        $result1 = mysqli_fetch_assoc($query1);
+                        $rowcount1 = $result1['total_schemes'];
+
                         // $query2=mysqli_query($con,"select count(yojanaId) as  from stepFive where yojanaComplete=''");
                         // $rowcount2=mysqli_num_rows($query2);
-                        
+
                         // $query3=mysqli_query($con,"select * from stepFive where yojanaComplete='Yes'");
                         // $rowcount3=mysqli_num_rows($query3);
-                        
+
                         $sql = "SELECT DISTINCT(yojanaMaster.yojanaId) as 'yojanaId',  yojanaMaster.stepOne as 'stepOne', yojanaMaster.stepTwo as 'stepTwo', yojanaMaster.stepThree  as 'stepThree', yojanaMaster.stepFour as 'stepFour', yojanaMaster.stepFive as 'stepFive', stepOne.completionPercentage as 'stepOnePer', stepTwo.completionPercentage as 'stepTwoPer', stepThree.completionPercentage as 'stepThreePer', stepFour.completionPercentage as 'stepFourPer', stepFive.completionPercentage as 'stepFivePer', (stepOne.completionPercentage + stepTwo.completionPercentage+ stepThree.completionPercentage+ stepFour.completionPercentage+ stepFive.completionPercentage) as 'percentage' from yojanaMaster 
                             LEFT JOIN stepOne on yojanaMaster.yojanaId = stepOne.yojanaId 
                             LEFT JOIN stepTwo on yojanaMaster.yojanaId = stepTwo.yojanaId
                             LEFT JOIN stepThree on yojanaMaster.yojanaId = stepThree.yojanaId
                             LEFT JOIN stepFour on yojanaMaster.yojanaId = stepFour.yojanaId
                             LEFT JOIN stepFive on yojanaMaster.yojanaId = stepFive.yojanaId";
-                        
+
                         $query4 = mysqli_query($con, $sql);
                         $completedSchemes = 0;
                         $progressSchemes = 0;
-                        while($result4 = mysqli_fetch_assoc($query4)){
+                        while ($result4 = mysqli_fetch_assoc($query4)) {
                             $yojanaId = $result4['yojanaId'];
                             $totalDiv = 0;
                             $stepOne = 0;
@@ -289,46 +308,46 @@ else {
                             $stepThree = 0;
                             $stepFour = 0;
                             $stepFive = 0;
-                            if($result4['stepOne'] == "Yes"){
+                            if ($result4['stepOne'] == "Yes") {
                                 $stepOne = $result4['stepOnePer'];
                                 $totalDiv = $totalDiv + 100;
                             }
-                            
-                            
-                            if($result4['stepTwo'] == "Yes"){
+
+
+                            if ($result4['stepTwo'] == "Yes") {
                                 $stepTwo = $result4['stepTwoPer'];
                                 $totalDiv = $totalDiv + 100;
                             }
-                            
-                            
-                            if($result4['stepThree'] == "Yes"){
+
+
+                            if ($result4['stepThree'] == "Yes") {
                                 $stepThree = $result4['stepThreePer'];
                                 $totalDiv = $totalDiv + 100;
                             }
-                            
-                            
-                            if($result4['stepFour'] == "Yes"){
+
+
+                            if ($result4['stepFour'] == "Yes") {
                                 $stepFour = $result4['stepFourPer'];
                                 $totalDiv = $totalDiv + 100;
                             }
-                            
-                            
-                            if($result4['stepFive'] == "Yes"){
+
+
+                            if ($result4['stepFive'] == "Yes") {
                                 $stepFive = $result4['stepFivePer'];
                                 $totalDiv = $totalDiv + 100;
                             }
-                            
-                            
+
+
                             $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / $totalDiv) * 100;
-                            if($percentage<100){
-                                $progressSchemes = $progressSchemes + 1;  
-                                $progressSchemesId .= $yojanaId.",";
+                            if ($percentage < 100) {
+                                $progressSchemes = $progressSchemes + 1;
+                                $progressSchemesId .= $yojanaId . ",";
                             } else {
                                 $completedSchemes = $completedSchemes + 1;
-                                $completedSchemesId .= $yojanaId.",";
+                                $completedSchemesId .= $yojanaId . ",";
                             }
                         }
-                        
+
                         ?>
                         <!-- -->
 
@@ -345,7 +364,7 @@ else {
                                         <div class="<?php echo $mobile ?>">
                                             <div class="color-card primary m-auto">
                                                 <i class="mdi mdi-clock-outline"></i>
-                                                <p class="font-weight-semibold mb-0"  id="scheme">Total Schemes</p>
+                                                <p class="font-weight-semibold mb-0" id="scheme">Total Schemes</p>
                                                 <span class="small">
                                                     # <?php echo $rowcount1; ?>
                                                 </span>
@@ -354,7 +373,7 @@ else {
                                         <div class="<?php echo $mobile ?> p-0">
                                             <div class="color-card bg-success m-auto">
                                                 <i class="mdi mdi-checkbox-marked-circle"></i>
-                                                <p class="font-weight-semibold mb-0"  id="scheme">Completed Schemes
+                                                <p class="font-weight-semibold mb-0" id="scheme">Completed Schemes
                                                 </p>
                                                 <span class="small">
                                                     <a style="color: white;" href="notstarted?back=index&yojanaid=<?php echo $completedSchemesId ?>"># <?php echo $completedSchemes; ?></a>
@@ -364,7 +383,7 @@ else {
                                         <div class="<?php echo $mobile ?> p-0 ">
                                             <div class="color-card bg-danger m-auto">
                                                 <i class="mdi mdi-timer-sand"></i>
-                                                <p class="font-weight-semibold mb-0"  id="scheme">In Progress</p>
+                                                <p class="font-weight-semibold mb-0" id="scheme">In Progress</p>
                                                 <span class="small">
                                                     <a style="color: white;" href="notstarted?back=index&yojanaid=<?php echo $progressSchemesId ?>"># <?php echo $progressSchemes; ?></a>
                                                 </span>
@@ -376,11 +395,11 @@ else {
                             </div>
                         </div>
                         <!-- -->
-                        
+
                         <div class="col-md-4 stretch-card grid-margin">
-                            
+
                             <iframe src="heatMap" title="Jalna district's heat map" style="width: 100%;height: 33rem;" id="heatmap"></iframe>
-                            
+
                         </div>
                         <!-- table-->
 
@@ -394,7 +413,7 @@ else {
                                         </center>
                                         <br>
                                         <br>
-                                        
+
                                     </div>
                                     <div class="col-md-2"></div>
                                     <div class="col-md-4">
@@ -402,7 +421,7 @@ else {
                                 </div>
 
                                 <div class="card-body p-0">
-                                    <iframe src="yojanaStatusReportNew" onclick="scrollWin()" width="100%" height="100%"  id="tableIframe"></iframe>
+                                    <iframe src="yojanaStatusReportNew" onclick="scrollWin()" width="100%" height="100%" id="tableIframe"></iframe>
 
                                 </div>
                             </div>
@@ -421,8 +440,8 @@ else {
             <!-- main-panel ends -->
         </div>
         <?php
-          include('footer.php');
-          ?>
+        include('footer.php');
+        ?>
         <!-- page-body-wrapper ends -->
     </div>
 
@@ -454,39 +473,40 @@ else {
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <!-- -->
     <script>
-    
-         // Selecting the iframe element
+        // Selecting the iframe element
         var frame = document.getElementById("tableIframe");
-          
+
         // Adjusting the iframe height onload event
         frame.onload = function()
         // function execute while load the iframe
         {
-          // set the height of the iframe as 
-          // the height of the iframe content
-          frame.style.height = 
-          frame.contentWindow.document.body.scrollHeight + 'px';
-           
-  
-         // set the width of the iframe as the 
-         // width of the iframe content
-         frame.style.width  = 
-          frame.contentWindow.document.body.scrollWidth+'px';
-              
+            // set the height of the iframe as 
+            // the height of the iframe content
+            frame.style.height =
+                frame.contentWindow.document.body.scrollHeight + 'px';
+
+
+            // set the width of the iframe as the 
+            // width of the iframe content
+            frame.style.width =
+                frame.contentWindow.document.body.scrollWidth + 'px';
+
         }
-        
+
         function scrollWin() {
-          frame.scrollTo(Math.random() * 5, Math.random() * 5);
+            frame.scrollTo(Math.random() * 5, Math.random() * 5);
         }
-        
-        $(function () { 
-            $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'}).tooltip('show');
-        });  
-        $('#search_field').on('keyup', function () {
+
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip({
+                trigger: 'manual'
+            }).tooltip('show');
+        });
+        $('#search_field').on('keyup', function() {
             var value = $(this).val();
             var patt = new RegExp(value, "i");
 
-            $('#yojanatable').find('tr').each(function () {
+            $('#yojanatable').find('tr').each(function() {
                 var $table = $(this);
 
                 if (!($table.find('td').text().search(patt) >= 0)) {
