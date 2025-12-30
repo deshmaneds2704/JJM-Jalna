@@ -5,6 +5,27 @@ if(!isset($_SESSION['userId'])){
     die();
 }
 require_once('include/con.php');
+// ====== PAGINATION START ======
+$records_per_page = 50; // Number of records per page
+$current_page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+if($current_page < 1) $current_page = 1;
+
+// Calculate offset
+$offset = ($current_page - 1) * $records_per_page;
+
+// Get total number of records
+$count_query = mysqli_query($con, "SELECT COUNT(*) as total FROM bill_details");
+$count_result = mysqli_fetch_assoc($count_query);
+$total_records = $count_result['total'];
+$total_pages = ceil($total_records / $records_per_page);
+
+// Ensure current page doesn't exceed total pages
+if($current_page > $total_pages && $total_pages > 0) {
+    $current_page = $total_pages;
+    $offset = ($current_page - 1) * $records_per_page;
+}
+// ====== PAGINATION END ======
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +50,8 @@ require_once('include/con.php');
     <link rel="stylesheet" href="template/assets/css/demo_2/style.css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
 
 
     <style>
@@ -120,6 +143,21 @@ require_once('include/con.php');
                
             }
         }
+
+        /* Pagination styles */
+.pagination {
+    margin-bottom: 0;
+}
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.page-link {
+    color: #007bff;
+}
+.page-link:hover {
+    color: #0056b3;
+}
     </style>
     
     <style>
@@ -169,29 +207,37 @@ require_once('include/con.php');
                                     <form class="forms-sample" action="uploadBillDetails_db" method="POST" enctype="multipart/form-data">
                                         
                                         <?php 
-                                        if(isset($_GET['id'])){
-                                            $id = $_GET['id'];
-                                        ?> 
-                                        <?php
-                                        } else {
-                                            $id = 0;
-                                        }
-                                        $query = mysqli_query($con, "SELECT * FROM users WHERE id = '$id'");
-                                        $result = mysqli_fetch_assoc($query);
-                                        $userId = $result['userId'];
-                                        ?>
-                                        <input type="hidden" value="<?php echo $userId ?>" name="userId">
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $query = mysqli_query($con, "SELECT * FROM users WHERE id = '$id'");
+    $result = mysqli_fetch_assoc($query);
+    
+    // Check if result exists
+    if ($result) {
+        $userId = $result['userId'] ?? '';
+        $contractor = $result['contractor'] ?? '';
+    } else {
+        $userId = '';
+        $contractor = '';
+    }
+} else {
+    $id = 0;
+    $userId = '';
+    $contractor = '';
+    $result = []; // Initialize as empty array
+}
+?>
+                                        <input type="hidden" value="<?php echo htmlspecialchars($userId) ?>" name="userId">
                                         <!-- for Fullname -->
                                         <!-- -->
 
                                         <!-- for Mobile No. & Designation -->
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="fullName">Name of Agent <span class="star">*</span></label>
-                                                    <input type="text" class="form-control" required="" id="contractor" name="contractor" value="<?php echo $result['contractor'] ?>" placeholder="Name of Constructors" />
-                                                </div>
-                                            </div>
+                                        <div class="col-md-3">
+    <div class="form-group">
+        <label for="fullName">Name of Agent <span class="star">*</span></label>
+        <input type="text" class="form-control" required="" id="contractor" name="contractor" value="<?php echo htmlspecialchars($contractor) ?>" placeholder="Name of Constructors" />
+    </div>
+</div>
                                             
                                             <div class="col-md-3">
                                                 <div class="form-group">
@@ -322,7 +368,7 @@ require_once('include/con.php');
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $q = mysqli_query($con, "SELECT * FROM bill_details");
+                                                $q = mysqli_query($con, "SELECT * FROM bill_details ORDER BY id DESC LIMIT $offset, $records_per_page");
                                                 while($r = mysqli_fetch_assoc($q)){
                                                 ?>
                                                 <tr>
@@ -380,9 +426,75 @@ require_once('include/con.php');
                                                 <?php
                                                 }
                                                 ?>
-                                            </tbody>
-                                        </table>
+                                                                                   </tbody>
+                                    </table>
+                                    
+                                    <!-- ====== PAGINATION START ====== -->
+                                    <?php if($total_pages > 0): ?>
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <p class="text-muted">
+                                                Showing <?php echo ($offset + 1); ?> to <?php echo min($offset + $records_per_page, $total_records); ?> 
+                                                of <?php echo $total_records; ?> entries
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <nav aria-label="Page navigation">
+                                                <ul class="pagination justify-content-end">
+                                                    <!-- First Page -->
+                                                    <li class="page-item <?php echo ($current_page == 1) ? 'disabled' : ''; ?>">
+                                                        <a class="page-link" href="?page=1" aria-label="First">
+                                                            <span aria-hidden="true">&laquo;&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                    <!-- Previous Page -->
+                                                    <li class="page-item <?php echo ($current_page == 1) ? 'disabled' : ''; ?>">
+                                                        <a class="page-link" href="?page=<?php echo $current_page - 1; ?>" aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                    <!-- Page Numbers -->
+                                                    <?php
+                                                    $max_pages_to_show = 5;
+                                                    $start_page = max(1, $current_page - floor($max_pages_to_show / 2));
+                                                    $end_page = min($total_pages, $start_page + $max_pages_to_show - 1);
+                                                    
+                                                    // Adjust start page if we're at the end
+                                                    if($end_page - $start_page < $max_pages_to_show - 1) {
+                                                        $start_page = max(1, $end_page - $max_pages_to_show + 1);
+                                                    }
+                                                    
+                                                    for($page_num = $start_page; $page_num <= $end_page; $page_num++):
+                                                    ?>
+                                                    <li class="page-item <?php echo ($page_num == $current_page) ? 'active' : ''; ?>">
+                                                        <a class="page-link" href="?page=<?php echo $page_num; ?>">
+                                                            <?php echo $page_num; ?>
+                                                        </a>
+                                                    </li>
+                                                    <?php endfor; ?>
+                                                    
+                                                    <!-- Next Page -->
+                                                    <li class="page-item <?php echo ($current_page >= $total_pages) ? 'disabled' : ''; ?>">
+                                                        <a class="page-link" href="?page=<?php echo $current_page + 1; ?>" aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                                    
+                                                    <!-- Last Page -->
+                                                    <li class="page-item <?php echo ($current_page >= $total_pages) ? 'disabled' : ''; ?>">
+                                                        <a class="page-link" href="?page=<?php echo $total_pages; ?>" aria-label="Last">
+                                                            <span aria-hidden="true">&raquo;&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
                                     </div>
+                                    <?php endif; ?>
+                                    <!-- ====== PAGINATION END ====== -->
+                                    
                                 </div>
                             </div>
                         </div>
