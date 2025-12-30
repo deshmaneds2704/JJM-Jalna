@@ -1,11 +1,39 @@
-<?php
+success: fun
+if(!isset($_SES<?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Check if it's an AJAX request
+$isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+          strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+
+// If it's AJAX, don't send redirect headers, send JSON response
+if ($isAjax) {
+    function ajaxResponse($status, $message, $redirect = '') {
+        echo json_encode([
+            'status' => $status,
+            'message' => $message,
+            'redirect' => $redirect
+        ]);
+        exit;
+    }
+}
+
 session_start();
 if(!isset($_SESSION['userId'])){
-    header('location:login');
-    die();
+    // Handle AJAX response if it's AJAX request
+    if ($isAjax) {
+        ajaxResponse('error', 'Session expired. Please login again.', 'login');
+    } else {
+        header('location:login');
+        die();
+    }
 }
 require_once('include/con.php');
 require_once('include/sweetAlert.php');
+
 if(isset($_POST['submit'])){
     $userId = $_SESSION['userId'];
     $createdDate = date("Y-m-d H:i:s");
@@ -254,14 +282,21 @@ if(isset($_POST['submit'])){
         
         //Msg
         if($query4 && $query3 && $query2 && $query1){
-            $status = true;
-            $msg = "Scheme has been created successfully";
-        } else {
-            $status = false;
-            $msg = "Sorry, Scheme can't be created. Please try again";
-        }
-        setSession($status, $msg);
-        header('location: createYojana');
+    $status = true;
+    $msg = "Scheme has been created successfully";
+} else {
+    $status = false;
+    $msg = "Sorry, Scheme can't be created. Please try again";
+}
+
+if ($isAjax) {
+    // Return JSON response for AJAX
+    ajaxResponse($status ? 'success' : 'error', $msg, 'createYojana');
+} else {
+    // Normal form submission
+    setSession($status, $msg);
+    header('location: createYojana');
+}
         
         
         
@@ -643,19 +678,27 @@ if(isset($_POST['submit'])){
             $query = mysqli_query($con, "UPDATE `subWork` SET `plannedDate` = '$plannedDate', `plannedEndDate` = '$plannedEndDate', `actualDate` = '$actualDate', `actualEndDate` = '$actualEndDate' WHERE yojanaId = '$yojanaId' AND id = '$subWorkId'") or die($con->error);
         }
         
-        if($query){
-            $status = true;
-            $msg = "Planned date and actual date is submitted successfully.";
-        } else {
-            $status = false;
-            $msg = "Sorry, Planned date and actual date can't be submit. Please try again";
-        }
-        setSession($status, $msg);
-        header('location: createYojana?yojanaId='.$yojanaId);
+       if($query){
+    $status = true;
+    $msg = "Planned date and actual date is submitted successfully.";
+} else {
+    $status = false;
+    $msg = "Sorry, Planned date and actual date can't be submit. Please try again";
+}
+
+if ($isAjax) {
+    // Return JSON response for AJAX
+    ajaxResponse($status ? 'success' : 'error', $msg, 'createYojana?yojanaId='.$yojanaId);
+} else {
+    // Normal form submission
+    setSession($status, $msg);
+    header('location: createYojana?yojanaId='.$yojanaId);
+}
+}
         
         
     }    
-}
+
 
 if(isset($_POST['expectionSubmit'])){
     

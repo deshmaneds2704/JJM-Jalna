@@ -517,7 +517,7 @@ else {
 
                                     <tbody id="yojanatable">
                                         <?php
-                                        
+                                        $contractorCon = ""; 
                                         if($_SESSION['designation'] == 'contractor'){
                                             $contractorCon = "WHERE contractor = '{$_SESSION['userId']}'";
                                         }
@@ -545,7 +545,7 @@ else {
                                              
                                             $q = mysqli_query($con, "SELECT * FROM stepOne WHERE yojanaId = '$yojanaId'");
                                             $r = mysqli_fetch_assoc($q);
-                                            $stepOne = $r['completionPercentage'];
+                                           $stepOne = $r['completionPercentage'] ?? 0;
                                             if($stepOne != ""){
                                                 $stepOneCompleted = "is-complete pointer";
                                                 $stepOneLink = "stepOne";
@@ -568,7 +568,7 @@ else {
                                             
                                             $q = mysqli_query($con, "SELECT * FROM stepTwo WHERE yojanaId = '$yojanaId'");
                                             $r = mysqli_fetch_assoc($q);
-                                            $stepTwo = $r['completionPercentage'];
+                                           $stepTwo = $r['completionPercentage'] ?? 0;
                                             if($stepTwo != ""){
                                                 $stepTwoCompleted = "is-complete pointer";
                                                 $stepTwoLink = "stepTwo";
@@ -596,7 +596,7 @@ else {
                                             
                                             $q = mysqli_query($con, "SELECT * FROM stepThree WHERE yojanaId = '$yojanaId'");
                                             $r = mysqli_fetch_assoc($q);
-                                            $stepThree = $r['completionPercentage'];
+                                            $stepThree = $r['completionPercentage'] ?? 0;
                                             if($stepThree != ""){
                                                 $stepThreeCompleted = "is-complete pointer";
                                                 $stepThreeLink = "stepThree";
@@ -624,7 +624,7 @@ else {
                                             
                                             $q = mysqli_query($con, "SELECT * FROM stepFour WHERE yojanaId = '$yojanaId'");
                                             $r = mysqli_fetch_assoc($q);
-                                            $stepFour = $r['completionPercentage'];
+                                            $stepFour = $r['completionPercentage'] ?? 0;
                                             if($stepFour != ""){
                                                 $stepFourCompleted = "is-complete pointer";
                                                 $stepFourLink = "stepFour";
@@ -652,7 +652,7 @@ else {
                                             
                                             $q = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'");
                                             $r = mysqli_fetch_assoc($q);
-                                            $stepFive = $r['completionPercentage'];
+                                           $stepFive = $r['completionPercentage'] ?? 0;
                                             if($stepFive != ""){
                                                 $stepFiveCompleted = "is-complete pointer";
                                                 $stepFiveLink = "stepFive";

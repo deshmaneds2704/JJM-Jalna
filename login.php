@@ -1,5 +1,7 @@
 <?php 
 session_start();
+
+error_reporting(E_ALL)
 ?>
 <!DOCTYPE html>
 <html lang="en">
