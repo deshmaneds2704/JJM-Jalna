@@ -1,5 +1,7 @@
 <?php
-// session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
