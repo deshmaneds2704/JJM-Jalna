@@ -1,5 +1,7 @@
-success: fun
-if(!isset($_SES<?php
+<?php
+// Start output buffering
+ob_start();
+
 // Enable error reporting for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -22,6 +24,7 @@ if ($isAjax) {
 }
 
 session_start();
+
 if(!isset($_SESSION['userId'])){
     // Handle AJAX response if it's AJAX request
     if ($isAjax) {
@@ -70,6 +73,7 @@ if(isset($_POST['submit'])){
         
         $query = mysqli_query($con, "SELECT * FROM yojanaMaster WHERE yojanaId = '$yojanaId'");
         if(mysqli_num_rows($query) >0 ){
+            ob_end_flush();
         ?>
         <html>
             <head>

@@ -213,6 +213,8 @@ if($_SESSION['designation'] != "clerk"){
         
     </style>
     
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     
@@ -486,7 +488,8 @@ if (isset($_GET['yojanaId'])) {
             id="gramPanchayat"
             name="gramPanchayat"
             required
-            onchange="loadVillage()"
+           
+
             <?php echo $readonly ?>
             style="width:100%;">
             <option value="" disabled selected>Select Gram Panchayat</option>
@@ -517,7 +520,7 @@ if (isset($_GET['yojanaId'])) {
                 required
                 id="village"
                 name="village"
-                onchange="loadHabitation()"
+                
                 style="width: 100%;">
                 <option value="" disabled selected>Select Village</option>
                 <?php
@@ -2148,7 +2151,8 @@ if (isset($_GET['yojanaId'])) {
                                                     ?>
                                                     <div id="esrDiv" class="rccEsrToggle">
                                                         <div class="row">
-                                                            <h6><span class="serialEsr"> RCC  ESR</span></h6>
+                                                            <h6><span class="se
+                                                            rialEsr"> RCC  ESR</span></h6>
                                                             <div class="col-md-5">
                                                                 <div class="form-group">
                                                                     <label for="capacityEsr1">Capacity (in ltr) </label>
@@ -3195,6 +3199,22 @@ id="diameterDistribution" name="diameterDistribution[]">
     ?>
 
 <script>
+    <?php if (isset($_GET['yojanaId'])): ?>
+// Override the checkSchemeName function to do nothing in edit mode
+window.checkSchemeName = function() {
+    console.log("Edit mode: Duplicate check disabled");
+    return false;
+};
+<?php endif; ?>
+    // At the beginning of your script
+$(document).ready(function () {
+    // If in edit mode, remove the checkSchemeName triggers
+    <?php if (isset($_GET['yojanaId'])): ?>
+    $("#gramPanchayat, #village, #habitation, #yojanaName").off('change blur');
+    <?php endif; ?>
+    
+    // ... rest of your code
+});
     // ========== GLOBAL FUNCTIONS (MUST BE OUTSIDE $(document).ready()) ==========
     // These functions are called from inline HTML event handlers (onchange, onkeyup)
     // TEMPORARY: Bypass all JavaScript validation
@@ -3246,6 +3266,26 @@ $(document).ready(function() {
     // ========== END GLOBAL FUNCTIONS ==========
 
     $(document).ready(function () {
+         $('.js-example-basic-single').select2();
+    
+    // Force close dropdown on select for all dropdowns
+    $('.js-example-basic-single').on('select2:select', function (e) {
+        // Close dropdown immediately
+        $(this).select2('close');
+    });
+    
+    // Bind change events separately
+    $('#gramPanchayat').on('change', function() {
+        loadVillage();
+    });
+    
+    $('#village').on('change', function() {
+        loadHabitation();
+    });
+    
+    $('#taluka').on('change', function() {
+        loadGramPanchayat(this.value);
+    });
         // DEBUG: Check form status
         console.log("=== FORM DEBUG INFO ===");
         console.log("Yojana ID: <?php echo $yojanaId ?>");
@@ -3391,53 +3431,26 @@ $(document).ready(function() {
         }
         
         // Function to check if scheme name already exists
-        function checkSchemeName() {
-            var yojanaName = $("#yojanaName").val();
-            var taluka = $("#taluka").val();
-            var gramPanchayat = $("#gramPanchayat").val();
-            var village = $("#village").val();
-            var habitation = $("#habitation").val();
-            
-            if (!yojanaName || !taluka || !gramPanchayat || !village || !habitation) {
-                return;
-            }
-            
-            $.ajax({
-                url: "<?php echo $_SERVER['PHP_SELF']; ?>",
-                type: "POST",
-                data: { 
-                    yojanaName: yojanaName,
-                    taluka2: taluka,
-                    gramPanchayat: gramPanchayat,
-                    village: village,
-                    habitation: habitation
-                },
-                success: function(response) {
-                    if (response == "1") {
-                        alert("Warning: A scheme with this name already exists for the selected location!");
-                        $("#yojanaName").addClass("is-invalid");
-                    } else {
-                        $("#yojanaName").removeClass("is-invalid");
-                    }
-                }
-            });
-        }
-
+        // Function to check if scheme name already exists - DISABLED
+function checkSchemeName() {
+    // This function is disabled to remove the popup warning
+    return false;
+}
         // Bind events
-        $("#taluka").change(function () {
-            loadGramPanchayat(this.value);
-        });
+        // $("#taluka").change(function () {
+        //     loadGramPanchayat(this.value);
+        // });
 
-        $("#gramPanchayat").change(loadVillage);
-        $("#village").change(loadHabitation);
+        // $("#gramPanchayat").change(loadVillage);
+        // $("#village").change(loadHabitation);
         
         // Check scheme name when location fields change
-        $("#gramPanchayat, #village, #habitation").change(function() {
-            setTimeout(checkSchemeName, 500);
-        });
+        // $("#gramPanchayat, #village, #habitation").change(function() {
+        //     setTimeout(checkSchemeName, 500);
+        // });
         
-        // Check scheme name on blur
-        $("#yojanaName").blur(checkSchemeName);
+        // // Check scheme name on blur
+        // $("#yojanaName").blur(checkSchemeName);
 
         // ===== FIXED FORM SUBMISSION HANDLER =====
        
@@ -3569,7 +3582,7 @@ $('form.forms-sample').on('submit', function(e) {
         });
         
         // Initialize select2 dropdowns
-        $('.js-example-basic-single').select2();
+        // $('.js-example-basic-single').select2();
         $('.js-example-basic-multiple').select2();
         
         // Initialize calculations on page load
