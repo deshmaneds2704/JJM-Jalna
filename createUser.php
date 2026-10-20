@@ -164,10 +164,24 @@ require_once('include/con.php');
                                         } else {
                                             $id = 0;
                                         }
-                                        $query = mysqli_query($con, "SELECT * FROM users WHERE id = '$id'");
-                                        $result = mysqli_fetch_assoc($query);
-                                        $userId = $result['userId'];
-                                        ?>
+                                       
+$query = mysqli_query($con, "SELECT * FROM users WHERE id = '$id'");
+$result = mysqli_fetch_assoc($query);
+
+if (!$result) {
+    $result = [
+        'userId' => '',
+        'fullName' => '',
+        'mobileNo' => '',
+        'designation' => '',
+        'username' => '',
+        'password' => ''
+    ];
+}
+
+$userId = $result['userId'];
+?>
+                                   
                                         <input type="hidden" value="<?php echo $userId ?>" name="userId">
                                         <!-- for Fullname -->
                                         <div class="form-group">

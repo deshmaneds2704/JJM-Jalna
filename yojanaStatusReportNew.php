@@ -315,7 +315,7 @@ else {
                         $yojanaId = $result4['yojanaId'];
                         $totalDiv = 0;
                         if($result4['stepOne'] == "Yes"){
-                            $stepOne = $r1['stepOnePer'];
+                            $stepOne = $result4['stepOnePer'];
                             $totalDiv = $totalDiv + 100;
                         }
                         
@@ -343,10 +343,16 @@ else {
                             $totalDiv = $totalDiv + 100;
                         }
                     
-                        $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / $totalDiv) * 100;
+
+if($totalDiv != 0){
+    $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / $totalDiv) * 100;
+} else {
+    $percentage = 0;
+}
                         if($percentage<100){
                             $progressSchemes = $progressSchemes + 1;  
-                            $progressSchemesId .= $yojanaId.",";
+                           $progressSchemesId = '';
+$completedSchemesId = '';
                         } else {
                             $completedSchemes = $completedSchemes + 1;
                             $completedSchemesId .= $yojanaId.",";
@@ -426,8 +432,7 @@ else {
                             LEFT JOIN stepThree on yojanaMaster.yojanaId = stepThree.yojanaId
                             LEFT JOIN stepFour on yojanaMaster.yojanaId = stepFour.yojanaId
                             LEFT JOIN stepFive on yojanaMaster.yojanaId = stepFive.yojanaId
-                            WHERE yojanaMaster.taluka = '$taluka' ORDER BY yojanaMaster.id DESC";
-                    $query1 = mysqli_query($con, $sql);
+WHERE yojanaMaster.taluka = '$taluka' ORDER BY yojanaMaster.yojanaId DESC";                    $query1 = mysqli_query($con, $sql);
                     while($result1 = mysqli_fetch_assoc($query1)){
                         $yojanaId = $result1['yojanaId'];
                         $totalDiv = 0;
@@ -612,7 +617,7 @@ else {
                                 </span>
                                 <br>-->
                             <span>
-                                <?php echo $result1['village']; ?>
+                               <?php echo $result1['village'] ?? ''; ?>
                             </span>
                         </td>
 

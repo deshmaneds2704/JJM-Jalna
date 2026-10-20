@@ -300,6 +300,9 @@ if (isMobileDevice()) {
                         $query4 = mysqli_query($con, $sql);
                         $completedSchemes = 0;
                         $progressSchemes = 0;
+
+                        $progressSchemesId = "";
+$completedSchemesId = "";
                         while ($result4 = mysqli_fetch_assoc($query4)) {
                             $yojanaId = $result4['yojanaId'];
                             $totalDiv = 0;
@@ -338,8 +341,11 @@ if (isMobileDevice()) {
                             }
 
 
-                            $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / $totalDiv) * 100;
-                            if ($percentage < 100) {
+$percentage = 0;
+
+if ($totalDiv > 0) {
+    $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / $totalDiv) * 100;
+}                            if ($percentage < 100) {
                                 $progressSchemes = $progressSchemes + 1;
                                 $progressSchemesId .= $yojanaId . ",";
                             } else {

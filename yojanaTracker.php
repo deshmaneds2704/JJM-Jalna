@@ -525,35 +525,41 @@ die();
                                                         
                                                         $Date = getDatesFromRange($from, $to);
                                                         
-                                                        $i = 1;
-                                                        foreach ($Date as $date){
-                                                            $querys[0] = mysqli_query($con, "SELECT * FROM stepOne WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
-                                                            $result[0] = mysqli_fetch_assoc($querys[0]);
-                                                            $percentage[0] = $result[0]['completionPercentage'];
-                                                            $counts[0] = mysqli_num_rows($querys[0]);
-                                                            
-                                                            $querys[1] = mysqli_query($con, "SELECT * FROM stepTwo WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
-                                                            $result[1] = mysqli_fetch_assoc($querys[1]);
-                                                            $percentage[1] = $result[1]['completionPercentage'];
-                                                            $counts[1] = mysqli_num_rows($querys[1]);
-                                                            
-                                                            $querys[2] = mysqli_query($con, "SELECT * FROM stepThree WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
-                                                            $result[2] = mysqli_fetch_assoc($querys[2]);
-                                                            $percentage[2] = $result[2]['completionPercentage'];
-                                                            $counts[2] = mysqli_num_rows($querys[2]);
-                                                            
-                                                            $querys[3] = mysqli_query($con, "SELECT * FROM stepFour WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
-                                                            $result[3] = mysqli_fetch_assoc($querys[3]);
-                                                            $percentage[3] = $result[3]['completionPercentage'];
-                                                            $counts[3] = mysqli_num_rows($querys[3]);
-                                                            
-                                                            $querys[4] = mysqli_query($con, "SELECT * FROM stepFive WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
-                                                            $result[4] = mysqli_fetch_assoc($querys[4]);
-                                                            $percentage[4] = $result[4]['completionPercentage'];
-                                                            $counts[4] = mysqli_num_rows($querys[4]);
-                                                            
-                                                            $querys[5] = mysqli_query($con, "SELECT * FROM finance WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
-                                                            $counts[5] = mysqli_num_rows($querys[5]);
+                                                       
+$i = 1;
+
+foreach ($Date as $date) {
+
+    $querys[0] = mysqli_query($con, "SELECT * FROM stepOne WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
+    $result[0] = mysqli_fetch_assoc($querys[0]);
+    $percentage[0] = $result[0]['completionPercentage'] ?? 0;
+    $counts[0] = mysqli_num_rows($querys[0]);
+
+    $querys[1] = mysqli_query($con, "SELECT * FROM stepTwo WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
+    $result[1] = mysqli_fetch_assoc($querys[1]);
+    $percentage[1] = $result[1]['completionPercentage'] ?? 0;
+    $counts[1] = mysqli_num_rows($querys[1]);
+
+    $querys[2] = mysqli_query($con, "SELECT * FROM stepThree WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
+    $result[2] = mysqli_fetch_assoc($querys[2]);
+    $percentage[2] = $result[2]['completionPercentage'] ?? 0;
+    $counts[2] = mysqli_num_rows($querys[2]);
+
+    $querys[3] = mysqli_query($con, "SELECT * FROM stepFour WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
+    $result[3] = mysqli_fetch_assoc($querys[3]);
+    $percentage[3] = $result[3]['completionPercentage'] ?? 0;
+    $counts[3] = mysqli_num_rows($querys[3]);
+
+    $querys[4] = mysqli_query($con, "SELECT * FROM stepFive WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
+    $result[4] = mysqli_fetch_assoc($querys[4]);
+    $percentage[4] = $result[4]['completionPercentage'] ?? 0;
+    $counts[4] = mysqli_num_rows($querys[4]);
+
+    $querys[5] = mysqli_query($con, "SELECT * FROM finance WHERE dateTime LIKE '$date%' AND yojanaId = '$yojanaId'");
+    $counts[5] = mysqli_num_rows($querys[5]);
+
+    // Continue with your existing code below
+
                                                             
                                                             if ($counts[0] == 0 && $counts[1] == 0 && $counts[2] == 0 && $counts[3] == 0 && $counts[4] == 0 && $counts[5] == 0){
                                                                 continue;

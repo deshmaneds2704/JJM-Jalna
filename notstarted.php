@@ -514,6 +514,8 @@ else {
                                 </div>-->
                             </div>
                            <?php
+                           $yojanaids = "";
+
                             if($yojanaId=$_GET['yojanaid']){
                                $print=(explode(",",$yojanaId));
                                $count=1;
@@ -544,7 +546,7 @@ else {
                             LEFT JOIN stepThree on yojanaMaster.yojanaId = stepThree.yojanaId
                             LEFT JOIN stepFour on yojanaMaster.yojanaId = stepFour.yojanaId
                             LEFT JOIN stepFive on yojanaMaster.yojanaId = stepFive.yojanaId
-                            $yojanaids ORDER BY yojanaMaster.id DESC";
+                           $yojanaids ORDER BY yojanaId DESC";
                             
                             // $query1 = mysqli_query($con, $sql);
                             $result = mysqli_query($con, $sql) or die($con->error);

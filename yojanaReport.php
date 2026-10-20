@@ -544,8 +544,7 @@ else {
                                         LEFT JOIN stepThree on yojanaMaster.yojanaId = stepThree.yojanaId
                                         LEFT JOIN stepFour on yojanaMaster.yojanaId = stepFour.yojanaId
                                         LEFT JOIN stepFive on yojanaMaster.yojanaId = stepFive.yojanaId
-                                        ORDER BY yojanaMaster.id DESC";
-                                        $result1=mysqli_query($con,$sql);
+ORDER BY yojanaMaster.yojanaId DESC";                                        $result1=mysqli_query($con,$sql);
                                         $i= 1;
                                         while ($row =mysqli_fetch_assoc($result1) ){
                                             $yojanaId = $row['yojanaId'];

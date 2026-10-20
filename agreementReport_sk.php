@@ -1,3 +1,5 @@
+
+Agreementreport sk · PHP
 <?php
 session_start();
 if(!isset($_SESSION['userId'])){
@@ -5,7 +7,8 @@ if(!isset($_SESSION['userId'])){
     die();
 }
 function isMobileDevice() {
-    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+    $ua = $_SERVER["HTTP_USER_AGENT"] ?? '';
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $ua);
 }
 if(isMobileDevice()){
     $mobile = "col-12 p-1";
@@ -18,7 +21,7 @@ else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -49,7 +52,7 @@ else {
         .range-slider {
             margin: 2px 0 0 0;
         }
-
+ 
         .range-slider input[type="range"] {
             width: calc(100% - (68px));
             height: 10px;
@@ -59,7 +62,7 @@ else {
             float: left;
             -webkit-appearance: none;
         }
-
+ 
         .range-slider input[type="range"]::-webkit-slider-thumb {
             width: 20px;
             height: 20px;
@@ -70,12 +73,12 @@ else {
             -webkit-appearance: none;
             appearance: none;
         }
-
+ 
         .range-slider input[type="range"]::-webkit-slider-thumb:hover,
         .range-slider input[type="range"]:active::-webkit-slider-thumb {
             background: #4cb2ef;
         }
-
+ 
         .range-slider input[type="range"]::-moz-range-thumb {
             width: 20px;
             height: 20px;
@@ -85,12 +88,12 @@ else {
             cursor: pointer;
             transition: background .15s ease-in-out;
         }
-
+ 
         .range-slider input[type="range"]::-moz-range-thumb:hover,
         .range-slider input[type="range"]:active::-moz-range-thumb {
             background: #4cb2ef;
         }
-
+ 
         .range-slider .range-value {
             display: inline-block;
             width: 60px;
@@ -104,7 +107,7 @@ else {
             position: relative;
             top: -10px;
         }
-
+ 
         .range-slider .range-value:after {
             content: "";
             border-right: 7px solid #2c3e50;
@@ -114,13 +117,13 @@ else {
             top: 8px;
             left: -7px;
         }
-
+ 
         ::-moz-range-track {
             background: #d7dcdf;
             border: 0;
         }
-
-
+ 
+ 
         .steps {
             list-style: none;
             margin: 0;
@@ -131,7 +134,7 @@ else {
             color: #929292;
             height: 4rem;
         }
-
+ 
         .steps>.step {
             position: relative;
             display: table-cell;
@@ -139,7 +142,7 @@ else {
             font-size: 0.875rem;
             color: #6D6875;
         }
-
+ 
         .steps>.step:before {
             content: attr(data-step);
             display: block;
@@ -158,7 +161,7 @@ else {
             font-weight: 700;
             font-size: 1rem;
         }
-
+ 
         .steps>.step:after {
             content: "";
             position: absolute;
@@ -169,15 +172,15 @@ else {
             top: 1rem;
             left: 50%;
         }
-
+ 
         .steps>.step:last-child:after {
             display: none;
         }
-
+ 
         .steps>.step.is-complete {
             color: #6D6875;
         }
-
+ 
         .steps>.step.is-complete:before {
             content: "✓";
             color: #3CB371;
@@ -192,79 +195,79 @@ else {
                 background: yellow;
                 border: 2px solid red;
         }          
-
+ 
         .steps>.step.is-complete:after {
             background: #3CB371;
         }
-
+ 
         .steps>.step.is-active {
             font-weight: bold;
-
+ 
         }
-
+ 
         .steps>.step.is-active:before {
             color: #FFF;
             border: 2px solid #0033c4;
             background: #0033c4;
             margin-bottom: -4.9rem;
         }
-
+ 
         .steps {
             margin-top: 3em;
         }
-
-
-
+ 
+ 
+ 
         .can-toggle {
             position: relative;
         }
-
+ 
         .can-toggle *,
         .can-toggle *:before,
         .can-toggle *:after {
             box-sizing: border-box;
         }
-
+ 
         .can-toggle input[type=checkbox] {
             opacity: 0;
             position: absolute;
             top: 0;
             left: 0;
         }
-
+ 
         .can-toggle input[type=checkbox][disabled]~label {
             pointer-events: none;
         }
-
+ 
         .can-toggle input[type=checkbox][disabled]~label .can-toggle__switch {
             opacity: 0.4;
         }
-
+ 
         .can-toggle input[type=checkbox]:checked~label .can-toggle__switch:before {
             content: attr(data-unchecked);
             left: 0;
         }
-
+ 
         .can-toggle input[type=checkbox]:checked~label .can-toggle__switch:after {
             content: attr(data-checked);
         }
-
+ 
         .can-toggle label {
             user-select: none;
             position: relative;
             display: flex;
             align-items: center;
         }
-
+ 
         .can-toggle label .can-toggle__label-text {
             flex: 1;
             padding-left: 32px;
         }
-
+ 
         .can-toggle label .can-toggle__switch {
             position: relative;
         }
-
+ 
         .can-toggle label .can-toggle__switch:before {
             content: attr(data-checked);
             position: absolute;
@@ -272,7 +275,7 @@ else {
             text-transform: uppercase;
             text-align: center;
         }
-
+ 
         .can-toggle label .can-toggle__switch:after {
             content: attr(data-unchecked);
             position: absolute;
@@ -282,90 +285,90 @@ else {
             background: white;
             transform: translate3d(0, 0, 0);
         }
-
+ 
         .can-toggle input[type=checkbox][disabled]~label {
             color: rgba(234, 0, 48, 0.5);
         }
-
+ 
         .can-toggle input[type=checkbox]:focus~label .can-toggle__switch,
         .can-toggle input[type=checkbox]:hover~label .can-toggle__switch {
             background-color: #ea0030;
         }
-
+ 
         .can-toggle input[type=checkbox]:focus~label .can-toggle__switch:after,
         .can-toggle input[type=checkbox]:hover~label .can-toggle__switch:after {
             color: #b70026;
         }
-
+ 
         .can-toggle input[type=checkbox]:hover~label {
             color: #d1002b;
         }
-
+ 
         .can-toggle input[type=checkbox]:checked~label:hover {
             color: #55bc49;
         }
-
+ 
         .can-toggle input[type=checkbox]:checked~label .can-toggle__switch {
             background-color: #70c767;
         }
-
+ 
         .can-toggle input[type=checkbox]:checked~label .can-toggle__switch:after {
             color: #4fb743;
         }
-
+ 
         .can-toggle input[type=checkbox]:checked:focus~label .can-toggle__switch,
         .can-toggle input[type=checkbox]:checked:hover~label .can-toggle__switch {
             background-color: #5fc054;
         }
-
+ 
         .can-toggle input[type=checkbox]:checked:focus~label .can-toggle__switch:after,
         .can-toggle input[type=checkbox]:checked:hover~label .can-toggle__switch:after {
             color: #47a43d;
         }
-
+ 
         .can-toggle label .can-toggle__label-text {
             flex: 1;
         }
-
+ 
         .can-toggle label .can-toggle__switch {
             transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
             background: #ff0538;
         }
-
+ 
         .can-toggle label .can-toggle__switch:before {
             color: rgba(255, 255, 255, 0.5);
         }
-
+ 
         .can-toggle label .can-toggle__switch:after {
             -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
             transition: transform 0.3s cubic-bezier(0, 1, 0.5, 1);
             color: #ea0030;
         }
-
+ 
         .can-toggle input[type=checkbox]:focus~label .can-toggle__switch:after,
         .can-toggle input[type=checkbox]:hover~label .can-toggle__switch:after {
             box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
         }
-
+ 
         .can-toggle input[type=checkbox]:checked~label .can-toggle__switch:after {
             transform: translate3d(65px, 0, 0);
         }
-
+ 
         .can-toggle input[type=checkbox]:checked:focus~label .can-toggle__switch:after,
         .can-toggle input[type=checkbox]:checked:hover~label .can-toggle__switch:after {
             box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
         }
-
+ 
         .can-toggle label {
             font-size: 14px;
         }
-
+ 
         .can-toggle label .can-toggle__switch {
             height: 36px;
             flex: 0 0 134px;
             border-radius: 4px;
         }
-
+ 
         .can-toggle label .can-toggle__switch:before {
             left: 67px;
             font-size: 12px;
@@ -373,7 +376,7 @@ else {
             width: 67px;
             padding: 0 12px;
         }
-
+ 
         .can-toggle label .can-toggle__switch:after {
             top: 2px;
             left: 2px;
@@ -382,35 +385,35 @@ else {
             line-height: 32px;
             font-size: 12px;
         }
-
+ 
         .can-toggle label .can-toggle__switch:hover:after {
             box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
         }
-
+ 
         .can-toggle.can-toggle--size-small input[type=checkbox]:focus~label .can-toggle__switch:after,
         .can-toggle.can-toggle--size-small input[type=checkbox]:hover~label .can-toggle__switch:after {
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
         }
-
+ 
         .can-toggle.can-toggle--size-small input[type=checkbox]:checked~label .can-toggle__switch:after {
             transform: translate3d(44px, 0, 0);
         }
-
+ 
         .can-toggle.can-toggle--size-small input[type=checkbox]:checked:focus~label .can-toggle__switch:after,
         .can-toggle.can-toggle--size-small input[type=checkbox]:checked:hover~label .can-toggle__switch:after {
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
         }
-
+ 
         .can-toggle.can-toggle--size-small label {
             font-size: 13px;
         }
-
+ 
         .can-toggle.can-toggle--size-small label .can-toggle__switch {
             height: 28px;
             flex: 0 0 90px;
             border-radius: 2px;
         }
-
+ 
         .can-toggle.can-toggle--size-small label .can-toggle__switch:before {
             left: 45px;
             font-size: 10px;
@@ -418,7 +421,7 @@ else {
             width: 45px;
             padding: 0 12px;
         }
-
+ 
         .can-toggle.can-toggle--size-small label .can-toggle__switch:after {
             top: 1px;
             left: 1px;
@@ -427,7 +430,7 @@ else {
             line-height: 26px;
             font-size: 10px;
         }
-
+ 
         .can-toggle.can-toggle--size-small label .can-toggle__switch:hover:after {
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
         }
@@ -492,24 +495,24 @@ else {
         .col-md-4 {
             font-size: 14px;
         }
-
+ 
         .color {
             color: #212529;
             font-weight: bold;
             font-size: 18px;
         }
-
+ 
         .tablehead {
             background: #0033c4;
             text-align: center;
             color: white;
             font-weight: bold;
         }
-
+ 
         .table thead th {
             font-weight: bold;
         }
-
+ 
         .center {
             text-align: center;
         }
@@ -544,9 +547,9 @@ else {
             border-color: #000;
         }
     </style>
-
+ 
 </head>
-
+ 
 <body>
     <div class="container-scroller">
         <?php
@@ -581,7 +584,7 @@ else {
                                                 $query = mysqli_query($con, "SELECT DISTINCT(taluka) FROM villages");
                                                 while($result = mysqli_fetch_assoc($query)){
                                                     $taluka = $result['taluka'];
-                                                    if($taluka == $_REQUEST['taluka']){
+                                                    if($taluka == ($_REQUEST['taluka'] ?? '')){
                                                         $selected = "selected";
                                                     } else {
                                                         $selected = "";
@@ -601,7 +604,7 @@ else {
                                 </div>
                             </form>
                                 
-                            <?php $taluka = $_POST['taluka'];?>
+                            <?php $taluka = $_POST['taluka'] ?? '';?>
             
                             <div class="table-responsive">
                                 <table class="table table-striped" id="dataTable">
@@ -620,11 +623,12 @@ else {
                                             <th style="font-weight: bold;">Extended Date</th>
                                         </tr>
                                     </thead>
-
+ 
                                     <tbody id="yojanatable">
                                         <?php
                                         if(!empty($taluka)){
-                                            $sql="SELECT * FROM yojanaMaster where taluka='$taluka'";
+                                            $talukaSafe = mysqli_real_escape_string($con, $taluka);
+                                            $sql="SELECT * FROM yojanaMaster where taluka='$talukaSafe'";
                                         } else{
                                             $sql="SELECT * FROM yojanaMaster ";
                                         }
@@ -635,35 +639,37 @@ else {
                                             $id = $result['yojanaId'];
                                             $yojanaName = $result['yojanaName'];
                                             $taluka = $result['taluka'];
+                                            $percentage = 0;
+                                            $extendedDate = '';
                                         
                                             
                                             $q = mysqli_query($con, "SELECT * FROM agreement WHERE yojanaId = '{$result['yojanaId']}'");
-                                            $r = mysqli_fetch_assoc($q);
-                                            $dateOfWorkOrder = $r['dateOfWorkOrder'];
-
+                                            $r = mysqli_fetch_assoc($q) ?: [];
+                                            $dateOfWorkOrder = $r['dateOfWorkOrder'] ?? '';
+ 
                                             $q0 = mysqli_query($con, "select datediff(expectedDate,exectedStartDate) as 'duration' from yojanaMaster WHERE yojanaId='$id'");
-                                            $r0 = mysqli_fetch_assoc($q0);
-                                            $duration = $r0['duration'].' days';
-
+                                            $r0 = mysqli_fetch_assoc($q0) ?: [];
+                                            $duration = ($r0['duration'] ?? '').' days';
+ 
                                             $q1 = mysqli_query($con, "SELECT * FROM yojanaMaster WHERE yojanaId ='$id'") or die($con -> error);
-                                            $r1 = mysqli_fetch_assoc($q1);
-                                            $expectedDate = $r1['expectedDate'];
+                                            $r1 = mysqli_fetch_assoc($q1) ?: [];
+                                            $expectedDate = $r1['expectedDate'] ?? '';
                                             
                                             $q3 = mysqli_query($con, "SELECT * FROM yojanaMaster WHERE yojanaId = '{$result['yojanaId']}'");
-                                            $r3 = mysqli_fetch_assoc($q3);
-                                            $totalSanctionedCost = $r3['totalSanctionedCost'];
+                                            $r3 = mysqli_fetch_assoc($q3) ?: [];
+                                            $totalSanctionedCost = $r3['totalSanctionedCost'] ?? 0;
                                             
                                             $q4 = mysqli_query($con, "SELECT * FROM yojanaMaster WHERE yojanaId = '{$result['yojanaId']}'");
-                                            $r4 = mysqli_fetch_assoc($q4);
-                                            $totalSanctionedCost = $r4['totalSanctionedCost'];
+                                            $r4 = mysqli_fetch_assoc($q4) ?: [];
+                                            $totalSanctionedCost = $r4['totalSanctionedCost'] ?? 0;
                                             
                                             $q5 = mysqli_query($con, "SELECT SUM(amount) as Expenditure FROM `finance` WHERE yojanaId='$id'");
-                                            $r5 = mysqli_fetch_assoc($q5);
-                                            $Expenditure = $r5['Expenditure'];
+                                            $r5 = mysqli_fetch_assoc($q5) ?: [];
+                                            $Expenditure = $r5['Expenditure'] ?? '';
                                             
                                             $query6 = mysqli_query($con, "SELECT * FROM stepOne WHERE yojanaId = '$id'");
-                                            $result = mysqli_fetch_assoc($query6);
-                                            $stepOne = $result['completionPercentage'];
+                                            $stepRow = mysqli_fetch_assoc($query6) ?: [];
+                                            $stepOne = $stepRow['completionPercentage'] ?? '';
                                             $count1=mysqli_num_rows($query6);
                                             if($count1==0){
                                                 $stepOne=0;
@@ -681,15 +687,15 @@ else {
                                                 $check_one = 0;
                                                 $array_one = array("typeOfSource","diameter","depth","yearOfConstruction","typeOfStructure","completionPercentage","yojanaId");
                                                 for($i1 = 0; $i1 <= (count($array_one)-1); $i1++){
-                                                    if(empty($result[$array_one[$i1]]) || $percentage < 100 ){
+                                                    if(empty($stepRow[$array_one[$i1]]) || $percentage < 100 ){
                                                         $stepOneCompleted = "is-incomplete";
                                                     }
                                                 }     
                                             }
                                             
                                             $query6 = mysqli_query($con, "SELECT * FROM stepTwo WHERE yojanaId = '$id'");
-                                            $result = mysqli_fetch_assoc($query6);
-                                            $stepTwo = $result['completionPercentage'];
+                                            $stepRow = mysqli_fetch_assoc($query6) ?: [];
+                                            $stepTwo = $stepRow['completionPercentage'] ?? '';
                                             $count2 = mysqli_num_rows($query6);
                                             if($count2==0){
                                                 $stepTwo=0;
@@ -713,7 +719,7 @@ else {
                                                 $check_two = 0;
                                                 $array_two = array("pumpNumber","power","installationYear","pumpingHours","pumpHouse","diameter","length","material","yojanaId");
                                                 for($i1 = 0; $i1 <= (count($array_two)-1); $i1++){
-                                                    if(empty($result[$array_two[$i1]]) || $percentage < 100 ){
+                                                    if(empty($stepRow[$array_two[$i1]]) || $percentage < 100 ){
                                                         $stepTwoCompleted = "is-incomplete pointer";
                                                     }
                                                 } 
@@ -721,8 +727,8 @@ else {
                                            
                                             
                                             $query6 = mysqli_query($con, "SELECT * FROM stepThree WHERE yojanaId = '$id'");
-                                            $result = mysqli_fetch_assoc($query6);
-                                            $stepThree = $result['completionPercentage'];
+                                            $stepRow = mysqli_fetch_assoc($query6) ?: [];
+                                            $stepThree = $stepRow['completionPercentage'] ?? '';
                                             $count3=mysqli_num_rows($query6);
                                             if($count3==0){
                                                 $stepThree=0;
@@ -746,7 +752,7 @@ else {
                                                 $check_three = 0;
                                                 $array_three = array("surveyNo","capacity","yearOfConstruction","height","typeOfConstruction","yojanaId");
                                                 for($i1 = 0; $i1 <= (count($array_three)-1); $i1++){
-                                                    if(empty($result[$array_three[$i1]]) || $percentage < 100 ){
+                                                    if(empty($stepRow[$array_three[$i1]]) || $percentage < 100 ){
                                                         $stepThreeCompleted = "is-incomplete pointer";
                                                     }
                                                 } 
@@ -754,8 +760,8 @@ else {
                                        
                                             
                                             $query6 = mysqli_query($con, "SELECT * FROM stepFour WHERE yojanaId = '$id'");
-                                            $result = mysqli_fetch_assoc($query6);
-                                            $stepFour = $result['completionPercentage'];
+                                            $stepRow = mysqli_fetch_assoc($query6) ?: [];
+                                            $stepFour = $stepRow['completionPercentage'] ?? '';
                                             $count4 = mysqli_num_rows($query6);
                                             if($count4==0){
                                                 $stepFour=0;
@@ -779,7 +785,7 @@ else {
                                                 $check_four = 0;
                                                 $array_four = array("length","material","yojanaId");
                                                 for($i1 = 0; $i1 <= (count($array_four)-1); $i1++){
-                                                    if(empty($result[$array_four[$i1]]) || $percentage < 100 ){
+                                                    if(empty($stepRow[$array_four[$i1]]) || $percentage < 100 ){
                                                         $stepFourCompleted = "is-incomplete pointer";
                                                     }
                                                 }
@@ -787,15 +793,15 @@ else {
                                             
                                             
                                             $query6 = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$id'");
-                                            $result = mysqli_fetch_assoc($query6);
-                                            $stepFive = $result['completionPercentage'];
+                                            $stepRow = mysqli_fetch_assoc($query6) ?: [];
+                                            $stepFive = $stepRow['completionPercentage'] ?? '';
                                             $count5 = mysqli_num_rows($query6);
                                             if($count5==0){
                                                 $stepFive=0;
                                             }
-                                            $datesOfTpiVisit1 = $result['datesOfTpiVisit1'];
-                                            $datesOfTpiVisit2 = $result['datesOfTpiVisit2'];
-                                            $datesOfTpiVisit3 = $result['datesOfTpiVisit3'];
+                                            $datesOfTpiVisit1 = $stepRow['datesOfTpiVisit1'] ?? '';
+                                            $datesOfTpiVisit2 = $stepRow['datesOfTpiVisit2'] ?? '';
+                                            $datesOfTpiVisit3 = $stepRow['datesOfTpiVisit3'] ?? '';
                                             if($stepFive != ""){
                                                 $stepFiveCompleted = "is-complete pointer";
                                                 $stepFiveLink = "stepFive";
@@ -810,20 +816,25 @@ else {
                                                     $stepFiveLink = "stepFive";
                                                 }
                                             }
-
+ 
                                             if(mysqli_num_rows($query6)>0){
                                                 $check_five = 0;
                                                 $array_five = array("dateOfCommissioning", "dateOfHandingOver", "datesOfTpiVisit1", "datesOfTpiVisit2", "datesOfTpiVisit3", "dateOfCompletion","yojanaId");
                                                 for($i1 = 0; $i1 <= (count($array_five)-1); $i1++){
-                                                    if(empty($result[$array_five[$i1]]) || $percentage < 100 ){
+                                                    if(empty($stepRow[$array_five[$i1]]) || $percentage < 100 ){
                                                         $stepFiveCompleted = "is-incomplete pointer";
                                                     }
                                                 }
                                             }
-                                            $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / 500) * 100;
+                                            $percentage = (((float)$stepOne + (float)$stepTwo + (float)$stepThree + (float)$stepFour + (float)$stepFive) / 500) * 100;
                                             
-
-                                            $financial = ($Expenditure/$totalSanctionedCost)*100;
+ 
+                                            // avoid "Division by zero" when sanctioned cost is 0 or empty
+                                            if((float)$totalSanctionedCost > 0){
+                                                $financial = ((float)$Expenditure / (float)$totalSanctionedCost) * 100;
+                                            } else {
+                                                $financial = 0;
+                                            }
                                         ?>
                                         <tr>
                                             <td> <?php echo $i ?></td>
@@ -871,13 +882,13 @@ else {
                                         }
                                         ?>
                                     </tbody>
-
+ 
                                 </table>
                             </div>
-
+ 
                         </div>
                     </div>
-
+ 
                 </div>
                 <!-- content-wrapper ends -->
                 <?php 
@@ -943,5 +954,7 @@ else {
     </script>
     
 </body>
-
+ 
 </html>
+ 
+Claude finished the response

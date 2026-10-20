@@ -6,7 +6,8 @@ if(!isset($_SESSION['userId'])){
 }
 
 function isMobileDevice() {
-    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+    $ua = $_SERVER["HTTP_USER_AGENT"] ?? '';
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $ua);
 }
 
 if(isMobileDevice()){
@@ -557,17 +558,25 @@ else {
         if(!isset($_GET['toDate']) && !isset($_GET['fromDate'])){
         
             $q = mysqli_query($con, "SELECT MIN(createdDate) as 'fromDateC', MIN(updatedDate) as 'fromDateU' FROM yojanaMaster");
-            $r = mysqli_fetch_assoc($q);
+            $r = mysqli_fetch_assoc($q) ?: [];
             
             
             $_GET['toDate'] = date('Y-m-d');
             
-            if($r['fromDateU'] > $r['fromDateC']){
-                $_GET['fromDate'] = date('Y-m-d', strtotime($r['fromDateU']));
+            $fromDateU = $r['fromDateU'] ?? '';
+            $fromDateC = $r['fromDateC'] ?? '';
+            
+            if($fromDateU > $fromDateC){
+                $_GET['fromDate'] = date('Y-m-d', strtotime($fromDateU));
             } else {
-                $_GET['fromDate'] = date('Y-m-d', strtotime($r['fromDateC']));
+                $_GET['fromDate'] = date('Y-m-d', strtotime($fromDateC));
             }
         }
+        
+        // safe defaults so the form never shows "undefined key" warnings
+        $_GET['fromDate'] = $_GET['fromDate'] ?? date('Y-m-d');
+        $_GET['toDate']   = $_GET['toDate'] ?? date('Y-m-d');
+        $selectedTaluka   = $_GET['taluka'] ?? '';
         ?>
     
         <div class="container-fluid page-body-wrapper">
@@ -605,14 +614,14 @@ else {
                                                 
                                                 $query = mysqli_query($con, "SELECT DISTINCT(taluka) FROM villages");
                                                 while($result = mysqli_fetch_assoc($query)){
-                                                    $taluka = $result['taluka'];
-                                                    if($taluka == $_GET['taluka']){
+                                                    $talukaName = $result['taluka'];
+                                                    if($talukaName == $selectedTaluka){
                                                         $selected = "selected";
                                                     } else {
                                                         $selected = "";
                                                     }
                                                 ?>
-                                                <option value="<?php echo $taluka ?>" <?php echo $selected; ?>><?php echo $taluka ?></option>
+                                                <option value="<?php echo $talukaName ?>" <?php echo $selected; ?>><?php echo $talukaName ?></option>
                                                 <?php
                                                 }
                                                 ?>
@@ -627,38 +636,54 @@ else {
                             </form>
                             
                             <?php
+                            // ---------- FILTERS ----------
+                            $date = "";
                             if(isset($_GET['show'])){
                                 $fromDate = date("Y-m-d", strtotime($_GET['fromDate']));
                                 $toDate = date("Y-m-d", strtotime($_GET['toDate']));
                                 $date = "AND (createdDate BETWEEN '$fromDate' AND '$toDate' or updatedDate BETWEEN '$fromDate' AND '$toDate')";
                             }
                             
-                            if($_GET['taluka'] != ''){
-                                $taluka = "AND taluka = '{$_GET['taluka']}'";
-                            } else {
-                                $taluka = "";
+                            $talukaFilter = "";
+                            if($selectedTaluka != ''){
+                                $t = mysqli_real_escape_string($con, $selectedTaluka);
+                                $talukaFilter = "AND taluka = '$t'";
                             }
                             
-                            $sql="SELECT * FROM yojanaMaster WHERE 1 $date $taluka ORDER BY id DESC";
+                            $sql = "SELECT * FROM yojanaMaster WHERE 1 $date $talukaFilter ORDER BY id DESC";
                             
-                            $result1=mysqli_query($con,$sql);
-                            $i= 1;
-                            $a= 0;
-                            $b= 0;
-                            $c= 0;
-                            $d= 0;
-                            $e= 0;
-                            $f=0;
+                            $result1 = mysqli_query($con, $sql);
+                            $i = 1;
+                            $a = 0;
+                            $b = 0;
+                            $c = 0;
+                            $d = 0;
+                            $e = 0;
+                            $f = 0;
+                            
+                            // ---------- INITIALISE ID LISTS ----------
+                            $yojanaIds = '';
+                            $yoj = '';
+                            $yoja = '';
+                            $yojan = '';
+                            $yojana = '';
+                            $yojanai = '';
+                            $comm = '';
+                            $comms = '';
+                            $hand = '';
+                            
                             while($row = mysqli_fetch_assoc($result1)){
                                 $status = "";
                                 $percentage = 0;
                                 $yojanaId = $row['yojanaId'];
+                                
+                                // ---------- STEP ONE ----------
                                 $query = mysqli_query($con, "SELECT * FROM stepOne WHERE yojanaId = '$yojanaId'");
-                                $result = mysqli_fetch_assoc($query);
-                                $stepOne = $result['completionPercentage'];
-                                $count1=mysqli_num_rows($query);
-                                if($count1==0){
-                                    $stepOne=0;
+                                $result = mysqli_fetch_assoc($query) ?: [];
+                                $stepOne = $result['completionPercentage'] ?? '';
+                                $count1 = mysqli_num_rows($query);
+                                if($count1 == 0){
+                                    $stepOne = 0;
                                 }
                                 if($stepOne != ""){
                                     $stepOneCompleted = "is-complete pointer";
@@ -669,7 +694,7 @@ else {
                                     $stepOneLink = "stepOne";
                                 }
                                 
-                                if(mysqli_num_rows($query)>0){
+                                if(mysqli_num_rows($query) > 0){
                                     $check_one = 0;
                                     $array_one = array("typeOfSource","diameter","depth","yearOfConstruction","typeOfStructure","completionPercentage","yojanaId");
                                     for($i1 = 0; $i1 <= (count($array_one)-1); $i1++){
@@ -679,12 +704,13 @@ else {
                                     }     
                                 }
                                 
+                                // ---------- STEP TWO ----------
                                 $query = mysqli_query($con, "SELECT * FROM stepTwo WHERE yojanaId = '$yojanaId'");
-                                $result = mysqli_fetch_assoc($query);
-                                $stepTwo = $result['completionPercentage'];
+                                $result = mysqli_fetch_assoc($query) ?: [];
+                                $stepTwo = $result['completionPercentage'] ?? '';
                                 $count2 = mysqli_num_rows($query);
-                                if($count2==0){
-                                    $stepTwo=0;
+                                if($count2 == 0){
+                                    $stepTwo = 0;
                                 }
                                 if($stepTwo != ""){
                                     $stepTwoCompleted = "is-complete pointer";
@@ -701,7 +727,7 @@ else {
                                     }
                                 }
                                 
-                                if(mysqli_num_rows($query)>0){
+                                if(mysqli_num_rows($query) > 0){
                                     $check_two = 0;
                                     $array_two = array("pumpNumber","power","installationYear","pumpingHours","pumpHouse","diameter","length","material","yojanaId");
                                     for($i1 = 0; $i1 <= (count($array_two)-1); $i1++){
@@ -711,12 +737,13 @@ else {
                                     } 
                                 }
                                 
+                                // ---------- STEP THREE ----------
                                 $query = mysqli_query($con, "SELECT * FROM stepThree WHERE yojanaId = '$yojanaId'");
-                                $result = mysqli_fetch_assoc($query);
-                                $stepThree = $result['completionPercentage'];
-                                $count3=mysqli_num_rows($query);
-                                if($count3==0){
-                                    $stepThree=0;
+                                $result = mysqli_fetch_assoc($query) ?: [];
+                                $stepThree = $result['completionPercentage'] ?? '';
+                                $count3 = mysqli_num_rows($query);
+                                if($count3 == 0){
+                                    $stepThree = 0;
                                 }
                                 if($stepThree != ""){
                                     $stepThreeCompleted = "is-complete pointer";
@@ -733,7 +760,7 @@ else {
                                     }
                                 }
                                 
-                                if(mysqli_num_rows($query)>0){
+                                if(mysqli_num_rows($query) > 0){
                                     $check_three = 0;
                                     $array_three = array("surveyNo","capacity","yearOfConstruction","height","typeOfConstruction","yojanaId");
                                     for($i1 = 0; $i1 <= (count($array_three)-1); $i1++){
@@ -743,12 +770,13 @@ else {
                                     } 
                                 }
                                 
+                                // ---------- STEP FOUR ----------
                                 $query = mysqli_query($con, "SELECT * FROM stepFour WHERE yojanaId = '$yojanaId'");
-                                $result = mysqli_fetch_assoc($query);
-                                $stepFour = $result['completionPercentage'];
+                                $result = mysqli_fetch_assoc($query) ?: [];
+                                $stepFour = $result['completionPercentage'] ?? '';
                                 $count4 = mysqli_num_rows($query);
-                                if($count4==0){
-                                    $stepFour=0;
+                                if($count4 == 0){
+                                    $stepFour = 0;
                                 }
                                 if($stepFour != ""){
                                     $stepFourCompleted = "is-complete pointer";
@@ -765,7 +793,7 @@ else {
                                     }
                                 }
                                 
-                                if(mysqli_num_rows($query)>0){
+                                if(mysqli_num_rows($query) > 0){
                                     $check_four = 0;
                                     $array_four = array("length","material","yojanaId");
                                     for($i1 = 0; $i1 <= (count($array_four)-1); $i1++){
@@ -775,16 +803,17 @@ else {
                                     } 
                                 }
                                 
+                                // ---------- STEP FIVE ----------
                                 $query = mysqli_query($con, "SELECT * FROM stepFive WHERE yojanaId = '$yojanaId'");
-                                $result = mysqli_fetch_assoc($query);
-                                $stepFive = $result['completionPercentage'];
+                                $result = mysqli_fetch_assoc($query) ?: [];
+                                $stepFive = $result['completionPercentage'] ?? '';
                                 $count5 = mysqli_num_rows($query);
-                                if($count5==0){
-                                    $stepFive=0;
+                                if($count5 == 0){
+                                    $stepFive = 0;
                                 }
-                                $datesOfTpiVisit1 = $result['datesOfTpiVisit1'];
-                                $datesOfTpiVisit2 = $result['datesOfTpiVisit2'];
-                                $datesOfTpiVisit3 = $result['datesOfTpiVisit3'];
+                                $datesOfTpiVisit1 = $result['datesOfTpiVisit1'] ?? '';
+                                $datesOfTpiVisit2 = $result['datesOfTpiVisit2'] ?? '';
+                                $datesOfTpiVisit3 = $result['datesOfTpiVisit3'] ?? '';
                                 if($stepFive != ""){
                                     $stepFiveCompleted = "is-complete pointer";
                                     $stepFiveLink = "stepFive";
@@ -800,7 +829,7 @@ else {
                                     }
                                 }
 
-                                if(mysqli_num_rows($query)>0){
+                                if(mysqli_num_rows($query) > 0){
                                     $check_five = 0;
                                     $array_five = array("dateOfCommissioning", "dateOfHandingOver", "datesOfTpiVisit1", "datesOfTpiVisit2", "datesOfTpiVisit3", "dateOfCompletion","yojanaId");
                                     for($i1 = 0; $i1 <= (count($array_five)-1); $i1++){
@@ -809,36 +838,32 @@ else {
                                         }
                                     }
                                 }
-                                $percentage = (($stepOne + $stepTwo + $stepThree + $stepFour + $stepFive) / 500) * 100;
+                                
+                                // ---------- OVERALL PERCENTAGE ----------
+                                $percentage = (((float)$stepOne + (float)$stepTwo + (float)$stepThree + (float)$stepFour + (float)$stepFive) / 500) * 100;
                                         
-                                if($percentage==0 ){  
-                                    $yojanaIds.=$yojanaId.','; 
-                                    $percentage;  
+                                if($percentage == 0 ){  
+                                    $yojanaIds .= $yojanaId.','; 
                                     $a++;
                                 }
-                                if($percentage>=1 && $percentage<=25 ){
-                                    $yoj.=$yojanaId.',';
-                                    $percentage;
+                                if($percentage >= 1 && $percentage <= 25 ){
+                                    $yoj .= $yojanaId.',';
                                     $b++;
                                 }
-                                if($percentage>=26 && $percentage<=50 ){
-                                    $yoja.=$yojanaId.',';
-                                    $percentage;
+                                if($percentage >= 26 && $percentage <= 50 ){
+                                    $yoja .= $yojanaId.',';
                                     $c++;
                                 }
-                                if($percentage>=51 && $percentage<=75 ){
-                                    $yojan.=$yojanaId.',';
-                                    $percentage;
+                                if($percentage >= 51 && $percentage <= 75 ){
+                                    $yojan .= $yojanaId.',';
                                     $d++;
                                 }
-                                if($percentage>=76 && $percentage<=100 ){ 
-                                    $yojana.=$yojanaId.',';  
-                                    $percentage; 
+                                if($percentage >= 76 && $percentage <= 100 ){ 
+                                    $yojana .= $yojanaId.',';  
                                     $e++;
                                 }
-                                if($percentage==100 ){
-                                    $yojanai.=$yojanaId.',';
-                                    $percentage; 
+                                if($percentage == 100 ){
+                                    $yojanai .= $yojanaId.',';
                                     $f++;
                                 }
                             };
@@ -916,29 +941,31 @@ else {
                                 </div>
                            
                                     <?php 
-                                    $date=0;
+                                    // ---------- COMMISSIONED ----------
+                                    $commissionedCount = 0;
                                     $query = mysqli_query($con, "SELECT * FROM stepFive");
                                     while($result = mysqli_fetch_assoc($query)){
-                                        $commission=$result['dateOfCommissioning'];
-                                        $yojanaId=$result['yojanaId'];
+                                        $commission = $result['dateOfCommissioning'] ?? '';
+                                        $yojanaId = $result['yojanaId'];
                                     
-                                        if($commission!='0000-00-00'){ 
+                                        if($commission != '0000-00-00'){ 
                                             $comm .= $yojanaId.',';
-                                            $commission;
-                                            $date++;
+                                            $commissionedCount++;
                                         } 
                                     }
-                                    $z=0;
+                                    
+                                    // ---------- FINANCIALLY COMPLETED ----------
+                                    $z = 0;
                                     $query1 = mysqli_query($con, "SELECT * FROM yojanaMaster");
                                     while($result1 = mysqli_fetch_assoc($query1)){
-                                        $yojanaid=$result1['yojanaId'];
-                                        $finance=$result1['totalSanctionedCost'];
-                                        $yojanaId=$result1['yojanaId'];
+                                        $yojanaid = $result1['yojanaId'];
+                                        $finance = $result1['totalSanctionedCost'];
+                                        $yojanaId = $result1['yojanaId'];
                                         
-                                        $query2= mysqli_query($con, "SELECT sum(amount) as ex FROM `finance` where yojanaId='$yojanaid'");
+                                        $query2 = mysqli_query($con, "SELECT sum(amount) as ex FROM `finance` where yojanaId='$yojanaid'");
                                         if(mysqli_num_rows($query2) > 0){
                                             $result2 = mysqli_fetch_assoc($query2);
-                                            $cost = $result2['ex'];
+                                            $cost = $result2['ex'] ?? 0;
                                             if($cost == ""){
                                                 $cost = 0;
                                             }
@@ -949,14 +976,15 @@ else {
                                             }
                                         }
                                     }
-                                    $handed=0;
+                                    
+                                    // ---------- HANDED OVER ----------
+                                    $handed = 0;
                                     $query = mysqli_query($con, "SELECT * FROM stepFive");
                                     while($result = mysqli_fetch_assoc($query)){
-                                        $commission=$result['dateOfHandingOver'];
-                                        $yojanaId=$result['yojanaId'];
-                                        if($commission!='0000-00-00'){
+                                        $commission = $result['dateOfHandingOver'] ?? '';
+                                        $yojanaId = $result['yojanaId'];
+                                        if($commission != '0000-00-00'){
                                             $hand .= $yojanaId.',';
-                                            $commission;
                                             $handed++;
                                         }
                                     }
@@ -968,7 +996,7 @@ else {
                                                     <h5 class="card-title"><i class="mdi mdi-calendar-check" style="font-size:30px;color:#03cffc"></i></h5>
                             
                                                     <a href="notstarted?back=schemeprogress&yojanaid=<?php echo $comm ?>&" style="text-decoration:none;color:black;font-size:20px;font-weight:500;">#
-                                                        <?php echo $date;?>
+                                                        <?php echo $commissionedCount; ?>
                                                     </a>
                             
                                                     <p class="card-text" style="font-size:15px;font-weight:300">Commissioned </p>

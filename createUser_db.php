@@ -17,9 +17,10 @@ if(isset($_POST['submit'])){
     $username = addslashes($_POST['username']);
     $password = addslashes($_POST['confirmPassword']);
     $createdDate = date('Y-m-d H:i:s');
+    $email = '';
     
     //Create User Query
-    $query = mysqli_query($con, "INSERT INTO `users`(`userId`, `fullName`, `email`, `mobileNo`, `designation`, `department`, `username`, `password`, `createdDate`, `level`) VALUES ('$userId', '$fullName', '$email', '$mobileNumber', '$designation', '', '$username', '$password', '$createdDate', '')");
+    $query = mysqli_query($con, "INSERT INTO `users`(`userId`, `fullName`, `email`, `mobileNo`, `designation`, `department`, `username`, `password`, `createdDate`, `level`) VALUES ('$userId', '$fullName', '$email', '$mobileNumber', '$designation', '', '$username', '$password', '$createdDate', 0)");
     
     if($query){
         $status = true;

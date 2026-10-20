@@ -296,7 +296,8 @@ require_once("include/con.php");
                                                         $percolationWellCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Percolation Well' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                            $id = $result['name'] ?? '';
+
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -338,7 +339,7 @@ require_once("include/con.php");
                                                         $approachBundCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Approach Bund' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                         $id = $result['name'] ?? '';  
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -380,7 +381,7 @@ require_once("include/con.php");
                                                         $switchRoomCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Switch Room' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                           $id = $result['name'] ?? '';  
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -422,7 +423,7 @@ require_once("include/con.php");
                                                         $pumpingMachineryCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Pumping Machinery' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                         $id = $result['name'] ?? '';   
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -464,7 +465,7 @@ require_once("include/con.php");
                                                         $risingMainCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Rising Main' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                         $id = $result['name'] ?? '';   
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -506,7 +507,7 @@ require_once("include/con.php");
                                                         $rccEsrCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'RCC ESR' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                          $id = $result['name'] ?? '';    
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -548,7 +549,7 @@ require_once("include/con.php");
                                                         $distributionSystemCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Distribution System' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                       $id = $result['name'] ?? '';  
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -590,7 +591,7 @@ require_once("include/con.php");
                                                         $msedcWork = 0;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'MSEDC Work' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                            $id = $result['name'] ?? '';     
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -632,7 +633,7 @@ require_once("include/con.php");
                                                         $trialRunCount = 1;
                                                         $query = mysqli_query($con, "SELECT * FROM subWork WHERE yojanaId = '$yojanaId' AND subWork = 'Trial & Run' ");
                                                         while($result = mysqli_fetch_assoc($query)){
-                                                            $id = $result['name'];     
+                                                            $id = $result['name'] ?? '';     
                                                         ?>
                                                         <tr>
                                                             <td>
@@ -831,7 +832,7 @@ require_once("include/con.php");
                                                         </tr>
                                                         <?php 
                                                         }
-                                                        if($result4['stepTwo'] == "Yes"){
+                                                        if($result4['stepTwo'] == "Yes")
                                                         ?>
                                                         <tr>
                                                             <td>Pump & Rising Main</td>
@@ -853,59 +854,59 @@ require_once("include/con.php");
                                                                 Remark
                                                             </td>
                                                             
-                                                            <?php
-                                                            $i = 0;
-                                                            $query6 = mysqli_query($con, "SELECT * FROM stepTwo WHERE yojanaId = '$yojanaId' ") or die ($con->error); 
-                                                            while($result6 = mysqli_fetch_assoc($query6)){
-                                                                if(!empty($result6['pumpNumber'])){
-                                                                    $pumpNumbers[$i] = $result6['pumpNumber'];
-                                                                }
-                                                                if(!empty($result6['power'])){
-                                                                    $powers[$i] = $result6['power'];
-                                                                }
-                                                                if(!empty($result6['pumpingHours'])){
-                                                                    $pumpingHourss[$i] = $result6['pumpingHours'];
-                                                                }
-                                                                if(!empty($result6['pumpHouse'])){
-                                                                    $pumpHouses[$i] = $result6['pumpHouse'];
-                                                                }
-                                                                
-                                                                if(!empty($result6['diameter'])){
-                                                                    $diameters[$i] = $result6['diameter'];
-                                                                }
-                                                                if(!empty($result6['material'])){
-                                                                    $materials[$i] = $result6['material'];
-                                                                }
-                                                                if(!empty($result6['length'])){
-                                                                    $lengths[$i] = $result6['length'];
-                                                                }
-                                                                $i++;
-                                                            }
-                                                            ?>
+                                                           
+<?php
+$pumpNumbers = [];
+$powers = [];
+$pumpingHourss = [];
+$pumpHouses = [];
+$diameters = [];
+$materials = [];
+$lengths = [];
+
+$i = 0;
+
+$query6 = mysqli_query(
+    $con,
+    "SELECT * FROM stepTwo WHERE yojanaId = '$yojanaId'"
+) or die($con->error);
+
+while ($result6 = mysqli_fetch_assoc($query6)) {
+
+    $pumpNumbers[$i] = $result6['pumpNumber'] ?? '';
+    $powers[$i] = $result6['power'] ?? '';
+    $pumpingHourss[$i] = $result6['pumpingHours'] ?? '';
+    $pumpHouses[$i] = $result6['pumpHouse'] ?? '';
+    $diameters[$i] = $result6['diameter'] ?? '';
+    $materials[$i] = $result6['material'] ?? '';
+    $lengths[$i] = $result6['length'] ?? '';
+
+    $i++;
+}
+?>
+
                                                             
                                                             <td>
                                                                 <?php 
                                                                 $i = 1;
-                                                                foreach ($pumpNumbers as $pumpNumber){
-                                                                    if($pumpNumber != "0"){
-                                                                        if($i >1){
-                                                                            echo "<span style='margin-left: 3rem;float: right;'>".$pumpNumber."</span>";
-                                                                        } else {
-                                                                            echo "<span>".$pumpNumber."</span>";
-                                                                        }
-                                                                    } else {
-                                                                        if($i > 1){
-                                                                            echo "<span style='margin-left: 3rem;float: right;'>-</span>";
-                                                                        } else {
-                                                                            echo "-";
-                                                                        }
-                                                                    }
-                                                                    $i++;
-                                                                }
-                                                                
-                                                                if(count($pumpNumbers) == "0"){
-                                                                    echo "<span>-</span>";
-                                                                }
+
+if (!empty($pumpNumbers) && is_array($pumpNumbers)) {
+    foreach ($pumpNumbers as $pumpNumber) {
+        if ($pumpNumber != "0" && $pumpNumber != "") {
+            if ($i > 1) {
+                echo "<span style='margin-left: 3rem; float: right;'>" . htmlspecialchars((string)$pumpNumber) . "</span>";
+            } else {
+                echo "<span>" . htmlspecialchars((string)$pumpNumber) . "</span>";
+            }
+        } else {
+            echo "<span>-</span>";
+        }
+
+        $i++;
+    }
+} else {
+    echo "<span>-</span>";
+}
                                                                 ?>
                                                                 
                                                                 <div style="display: flex;justify-content: center;"><hr></div>
@@ -1067,7 +1068,7 @@ require_once("include/con.php");
                                                             </td>
                                                         </tr>
                                                         <?php
-                                                        }
+                                                        
                                                         if($result4['stepThree'] == "Yes"){
                                                         ?>
                                                         <tr>
